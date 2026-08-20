@@ -1,4 +1,4 @@
-// serogalos.es — interacciones de la landing
+// sergiogalos.es — interacciones de la landing
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
