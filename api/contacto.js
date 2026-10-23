@@ -58,7 +58,18 @@ module.exports = async (req, res) => {
     privacidad: body.privacidad === "1" || body.privacidad === "on" || body.privacidad === true,
   };
 
+  // Web: se acepta "tunegocio.es" sin esquema ni www; se normaliza a https:// para el enlace del correo
+  if (data.web) {
+    const DOMINIO = /^((https?:\/\/)?(www\.)?)?[\p{L}\p{N}-]+(\.[\p{L}\p{N}-]+)*\.[\p{L}]{2,}(\/\S*)?$/u;
+    if (!DOMINIO.test(data.web)) {
+      data.webInvalida = true;
+    } else if (!/^https?:\/\//i.test(data.web)) {
+      data.web = "https://" + data.web;
+    }
+  }
+
   const errores = [];
+  if (data.webInvalida) errores.push("web");
   if (!data.nombre) errores.push("nombre");
   if (!data.telefono) errores.push("telefono");
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) errores.push("email");

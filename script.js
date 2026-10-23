@@ -64,6 +64,18 @@ if (contactForm) {
   const status = contactForm.querySelector(".form-status");
   const submit = contactForm.querySelector(".form-submit");
 
+  // Campo web: basta con un dominio con su extensión (tunegocio.es); http, https y www son opcionales
+  const webField = contactForm.elements.web;
+  if (webField) {
+    const DOMINIO = /^\s*((https?:\/\/)?(www\.)?)?[\p{L}\p{N}-]+(\.[\p{L}\p{N}-]+)*\.[\p{L}]{2,}(\/\S*)?\s*$/u;
+    const validarWeb = () => {
+      const v = webField.value.trim();
+      webField.setCustomValidity(v && !DOMINIO.test(v) ? "Escribe tu dominio, por ejemplo tunegocio.es" : "");
+    };
+    webField.addEventListener("input", validarWeb);
+    webField.addEventListener("blur", () => { validarWeb(); webField.value = webField.value.trim(); });
+  }
+
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     status.className = "form-status";
