@@ -99,13 +99,17 @@ if (contactForm) {
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(data)
       });
-      if (!res.ok) throw new Error("HTTP " + res.status);
+      if (!res.ok) {
+        let codigo = "";
+        try { const j = await res.json(); codigo = j.codigo ? " (" + j.codigo + ")" : ""; } catch (e) { /* sin cuerpo */ }
+        throw new Error("HTTP " + res.status + codigo);
+      }
       status.textContent = "Recibido. Te respondo personalmente en menos de 24 horas laborables.";
       status.classList.add("is-ok");
       contactForm.reset();
       if (window.dataLayer) window.dataLayer.push({ event: "form_contacto_enviado" });
     } catch (err) {
-      status.textContent = "No se ha podido enviar. Llámame al 644 738 270 o escríbeme por WhatsApp.";
+      status.textContent = "No se ha podido enviar. Llámame al 644 738 270 o escríbeme por WhatsApp." + (err && /\(/.test(err.message) ? " Código: " + err.message.replace(/^HTTP \d+ /, "") : "");
       status.classList.add("is-err");
     } finally {
       submit.disabled = false;

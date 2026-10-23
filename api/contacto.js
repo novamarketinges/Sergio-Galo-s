@@ -37,6 +37,25 @@ function parseBody(req) {
 module.exports = async (req, res) => {
   res.setHeader("Cache-Control", "no-store");
 
+  // Diagnóstico: GET /api/contacto?diag=1 comprueba la configuración y la conexión SMTP sin enviar nada.
+  // No devuelve credenciales, solo qué variables existen y el código de error si la conexión falla.
+  if (req.method === "GET" && req.query && req.query.diag === "1") {
+    const vars = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS", "SMTP_SECURE", "MAIL_FROM", "MAIL_TO"];
+    const presentes = Object.fromEntries(vars.map((v) => [v, Boolean(process.env[v])]));
+    const out = { ok: false, variables: presentes, puerto: Number(process.env.SMTP_PORT || 587),
+                  secure: process.env.SMTP_SECURE === "true" || Number(process.env.SMTP_PORT) === 465 };
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      out.error = "Faltan variables SMTP"; return res.status(200).json(out);
+    }
+    try {
+      await crearTransporte().verify();
+      out.ok = true; out.conexion = "SMTP verificado";
+    } catch (err) {
+      out.error = "Fallo de conexión o autenticación SMTP"; out.codigo = err && (err.code || err.responseCode); out.detalle = err && err.message;
+    }
+    return res.status(200).json(out);
+  }
+
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ ok: false, error: "Método no permitido" });
@@ -135,16 +154,24 @@ module.exports = async (req, res) => {
   }
 
   try {
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: process.env.SMTP_SECURE === "true" || Number(process.env.SMTP_PORT) === 465,
-      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
-    });
-    await transporter.sendMail(mail);
+    await crearTransporte().sendMail(mail);
     return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error("[contacto] Error SMTP:", err && err.message);
-    return res.status(502).json({ ok: false, error: "No se pudo enviar el correo" });
+    console.error("[contacto] Error SMTP:", err && err.code, err && err.message);
+    return res.status(502).json({ ok: false, error: "No se pudo enviar el correo", codigo: err && (err.code || err.responseCode) });
   }
 };
+
+function crearTransporte() {
+  const port = Number(process.env.SMTP_PORT || 587);
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port,
+    secure: process.env.SMTP_SECURE === "true" || port === 465,
+    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+    connectionTimeout: 8000,
+    greetingTimeout: 8000,
+    socketTimeout: 8000,
+    tls: { servername: process.env.SMTP_HOST },
+  });
+}
