@@ -134,8 +134,12 @@ module.exports = async (req, res) => {
       <p style="font-size:12px;color:#5b6472">${esc(fecha)} · IP ${esc(ip || "-")}</p>
     </div>`;
 
+  // El sobre SMTP (MAIL FROM) va siempre con la cuenta autenticada: muchos proveedores rechazan
+  // cualquier otro remitente. En la cabecera From se usa MAIL_FROM si existe.
   const mail = {
     from: `"Web sergiogalos.es" <${from}>`,
+    sender: process.env.SMTP_USER,
+    envelope: { from: process.env.SMTP_USER, to },
     to,
     replyTo: `"${data.nombre.replace(/"/g, "")}" <${data.email}>`,
     subject: `Solicitud SEO · ${data.nombre}${data.empresa ? " · " + data.empresa : ""} · ${necesidad}`,
@@ -157,8 +161,9 @@ module.exports = async (req, res) => {
     await crearTransporte().sendMail(mail);
     return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error("[contacto] Error SMTP:", err && err.code, err && err.message);
-    return res.status(502).json({ ok: false, error: "No se pudo enviar el correo", codigo: err && (err.code || err.responseCode) });
+    console.error("[contacto] Error SMTP:", err && err.code, err && err.message, err && err.response);
+    return res.status(502).json({ ok: false, error: "No se pudo enviar el correo", codigo: err && (err.code || err.responseCode),
+                                  detalle: err && (err.response || err.message) });
   }
 };
 
