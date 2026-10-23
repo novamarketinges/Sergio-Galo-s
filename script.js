@@ -4,7 +4,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 
 /* ---------- Barra de búsqueda: consultas que escriben tus clientes ---------- */
 
-const QUERIES = [
+const DEFAULT_QUERIES = [
   "consultor seo",
   "mi web no aparece en google",
   "cómo salir primero en google",
@@ -13,6 +13,15 @@ const QUERIES = [
 ];
 
 const queryEl = document.getElementById("query");
+
+// Cada página puede definir sus propias consultas en data-queries (JSON)
+let QUERIES = DEFAULT_QUERIES;
+if (queryEl && queryEl.dataset.queries) {
+  try {
+    const custom = JSON.parse(queryEl.dataset.queries);
+    if (Array.isArray(custom) && custom.length) QUERIES = custom;
+  } catch (e) { /* se mantienen las consultas por defecto */ }
+}
 
 if (queryEl && !reducedMotion) {
   let qIndex = 0;
@@ -45,6 +54,52 @@ if (queryEl && !reducedMotion) {
   };
 
   setTimeout(tick, 2200);
+}
+
+/* ---------- Formulario de contacto: envío sin recargar ---------- */
+
+const contactForm = document.getElementById("form-contacto");
+
+if (contactForm) {
+  const status = contactForm.querySelector(".form-status");
+  const submit = contactForm.querySelector(".form-submit");
+
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.className = "form-status";
+
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+    if (contactForm.elements._honey && contactForm.elements._honey.value) return; // bot
+
+    submit.disabled = true;
+    const label = submit.textContent;
+    submit.textContent = "Enviando…";
+
+    const data = {};
+    new FormData(contactForm).forEach((v, k) => { data[k] = v; });
+
+    try {
+      const res = await fetch(contactForm.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      status.textContent = "Recibido. Te respondo personalmente en menos de 24 horas laborables.";
+      status.classList.add("is-ok");
+      contactForm.reset();
+      if (window.dataLayer) window.dataLayer.push({ event: "form_contacto_enviado" });
+    } catch (err) {
+      status.textContent = "No se ha podido enviar. Llámame al 644 738 270 o escríbeme por WhatsApp.";
+      status.classList.add("is-err");
+    } finally {
+      submit.disabled = false;
+      submit.textContent = label;
+    }
+  });
 }
 
 /* ---------- Nav: línea inferior al hacer scroll ---------- */

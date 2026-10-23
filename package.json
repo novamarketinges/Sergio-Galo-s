@@ -1,0 +1,10 @@
+{
+  "name": "sergiogalos-es",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web estática de sergiogalos.es con función serverless de contacto por SMTP (Vercel)",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}
