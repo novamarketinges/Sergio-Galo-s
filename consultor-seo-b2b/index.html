@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles.css?v=20261025c">
+  <link rel="stylesheet" href="/styles.css?v=20261025d">
 
   <script type="application/ld+json">
   {
@@ -587,31 +587,82 @@
     <!-- ================= CTA ================= -->
     <section class="section" id="contacto">
       <div class="container">
-        <div class="cta-final cta-wide reveal">
-          <h2>Solicita tu auditoría SEO B2B</h2>
-          <p>Cuéntame qué vendes, a quién y en qué mercados. Te digo, con datos, qué búsquedas hace tu cliente antes de contactar y si hoy apareces en ellas.</p>
+        <div class="cta-final cta-split reveal">
+          <div class="cta-copy">
+            <h2>Solicita tu auditoría SEO B2B</h2>
+            <p>Cuéntame qué vendes, a quién y en qué mercados. Te digo, con datos, qué búsquedas hace tu cliente antes de contactar y si hoy apareces en ellas.</p>
 
-          <div class="cta-cols">
-            <div class="cta-col">
-              <h3>Analizo tu web y tu mercado</h3>
-              <ul class="cta-list">
-                <li><p>Revisión inicial de tu web: indexación, estructura y páginas de solución.</p></li>
-                <li><p>Qué competidores captan hoy los leads de tu sector y con qué contenido.</p></li>
-                <li><p>Las tres acciones con más impacto en leads para tu caso, sin compromiso.</p></li>
-              </ul>
+            <div class="cta-cols">
+              <div class="cta-col">
+                <h3>Analizo tu web y tu mercado</h3>
+                <ul class="cta-list">
+                  <li><p>Revisión inicial de tu web: indexación, estructura y páginas de solución.</p></li>
+                  <li><p>Qué competidores captan hoy los leads de tu sector y con qué contenido.</p></li>
+                  <li><p>Las tres acciones con más impacto en leads para tu caso, sin compromiso.</p></li>
+                </ul>
+              </div>
+              <div class="cta-col">
+                <h3>Contacta con tu consultor SEO B2B</h3>
+                <ul class="cta-list">
+                  <li><p>Respuesta personal en menos de 24 horas, sin formularios automáticos.</p></li>
+                  <li><p>Primera videollamada sin coste para entender tu producto y tu ciclo de venta.</p></li>
+                  <li><p>Trabajo con empresas de toda España, en remoto o en persona en Cataluña.</p></li>
+                </ul>
+              </div>
             </div>
-            <div class="cta-col">
-              <h3>Contacta con tu consultor SEO B2B</h3>
-              <ul class="cta-list">
-                <li><p>Respuesta personal en menos de 24 horas, sin formularios automáticos.</p></li>
-                <li><p>Primera videollamada sin coste para entender tu producto y tu ciclo de venta.</p></li>
-                <li><p>Trabajo con empresas de toda España, en remoto o en persona en Cataluña.</p></li>
-              </ul>
-            </div>
+            <p class="cta-phone">¿Prefieres hablar? Llámame al <a href="tel:+34644738270">644 738 270</a> · lunes a viernes de 9 a 20</p>
           </div>
+          <div class="form-card" id="formulario">
+            <form id="form-contacto" class="form wizard" action="/api/contacto/" method="POST" novalidate data-wizard>
+              <div class="wizard-progress" aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
 
-          <a class="btn btn-primary" href="/contacto/">Pedir mi auditoría gratuita</a>
-          <span class="cta-email">o llámame al <a href="tel:+34644738270">644 738 270</a></span>
+              <fieldset class="wizard-step is-active" data-step="1">
+                <p class="wizard-kicker">Paso 1 de 3</p>
+                <p class="wizard-title" data-title-web="¿Cuál es tu web?" data-title-noweb="¿Cómo se llama tu negocio?">¿Cuál es tu web?</p>
+                <label class="field field-web"><span class="visually-hidden">Web</span>
+                  <input type="text" name="url" inputmode="url" placeholder="www.miempresa.com" autocomplete="url" autocapitalize="none" spellcheck="false" required>
+                </label>
+                <label class="field field-business-step" hidden><span class="visually-hidden">Nombre del negocio</span>
+                  <input type="text" name="business" maxlength="120" placeholder="Nombre de tu negocio" autocomplete="organization" disabled>
+                </label>
+                <label class="field field-check">
+                  <input type="checkbox" name="no_web" value="1" id="form-contacto-no-web">
+                  <span>No tengo web</span>
+                </label>
+                <p class="wizard-error" role="alert"></p>
+                <button class="btn btn-primary form-submit wizard-next" type="button">Analizar mi web →</button>
+              </fieldset>
+
+              <fieldset class="wizard-step" data-step="2">
+                <p class="wizard-kicker">Paso 2 de 3</p>
+                <p class="wizard-title">¿Qué quieres conseguir?</p>
+                <div class="wizard-options">
+                  <label class="wizard-option"><input type="radio" name="objetivo" value="local" required><span>Más clientes de mi zona</span></label>
+                  <label class="wizard-option"><input type="radio" name="objetivo" value="ecommerce"><span>Vender más en mi tienda online</span></label>
+                  <label class="wizard-option"><input type="radio" name="objetivo" value="b2b"><span>Conseguir presupuestos de empresas</span></label>
+                  <label class="wizard-option"><input type="radio" name="objetivo" value="no-se"><span>Todavía no lo tengo claro</span></label>
+                </div>
+                <p class="wizard-error" role="alert"></p>
+                <button class="wizard-back" type="button">← Atrás</button>
+              </fieldset>
+
+              <fieldset class="wizard-step" data-step="3">
+                <p class="wizard-kicker">Paso 3 de 3</p>
+                <p class="wizard-title">¿A dónde te lo envío?</p>
+                <label class="field"><span>Nombre *</span><input type="text" name="name" autocomplete="name" required></label>
+                <label class="field"><span>Email *</span><input type="email" name="email" autocomplete="email" required></label>
+                <label class="field"><span>Teléfono *</span><input type="tel" name="phone" required autocomplete="tel" inputmode="tel" minlength="9" pattern="[0-9+\s.\(\)\-]{9,20}" title="Introduce un teléfono válido (mínimo 9 cifras)"></label>
+                <label class="field field-check">
+                  <input type="checkbox" id="form-contacto-terms" name="terms" value="1" required>
+                  <span>He leído y acepto la <a href="/politica-de-privacidad/">política de privacidad</a>.</span>
+                </label>
+                <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <button class="btn btn-primary form-submit" type="submit">Enviadme el diagnóstico →</button>
+                <p class="form-status" role="status" aria-live="polite"></p>
+                <button class="wizard-back" type="button">← Atrás</button>
+              </fieldset>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -783,6 +834,6 @@
   }, true);
 })();
   </script>
-  <script src="/script.js?v=20261025c" defer></script>
+  <script src="/script.js?v=20261025d" defer></script>
 </body>
 </html>

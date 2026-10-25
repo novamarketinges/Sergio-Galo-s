@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles.css?v=20261025c">
+  <link rel="stylesheet" href="/styles.css?v=20261025d">
 
   <script type="application/ld+json">
   {
@@ -115,7 +115,7 @@
   <main>
 
     <!-- ================= HERO + FORMULARIO ================= -->
-    <section class="hero">
+    <section class="hero hero-contact">
       <div class="container hero-grid hero-grid-contact">
         <div class="hero-copy">
           <nav class="crumbs" aria-label="Migas de pan">
@@ -123,35 +123,36 @@
           </nav>
           <h1 class="hero-kicker">Contacto</h1>
           <h2 class="hero-title">Solicita tu auditoría SEO <em>gratuita</em></h2>
-          <p class="hero-sub">Cuéntame a qué se dedica tu negocio y pásame tu web. Reviso tu posicionamiento y tu competencia y te digo, con datos y sin tecnicismos, por dónde empezaría. Te respondo yo en menos de 24 horas.</p>
+          <p class="hero-sub">Dime cuál es tu web y qué quieres conseguir. Reviso tu posicionamiento y tu competencia y te digo, con datos y sin tecnicismos, por dónde empezaría.</p>
 
-          <ul class="method-facts hero-facts">
-            <li><strong>Respuesta en menos de 24 h</strong><span>Personal, sin formularios automáticos ni comerciales</span></li>
-            <li><strong>Sin compromiso</strong><span>Recomendaciones que puedes aplicar aunque no trabajemos juntos</span></li>
-            <li><strong>Precios claros</strong><span>Consultoría mensual desde 300 € al mes, auditoría completa desde 900 €, proyectos a medida a consultar</span></li>
+          <ul class="contact-facts">
+            <li><strong>&lt; 24 h</strong><span>Respuesta personal, sin comerciales</span></li>
+            <li><strong>0 €</strong><span>Auditoría inicial sin compromiso</span></li>
+            <li><strong>3 pasos</strong><span>Menos de un minuto para rellenarlo</span></li>
           </ul>
 
-          <div class="contact-ways">
+          <div class="contact-ways contact-ways-row">
             <a class="contact-way" href="tel:+34644738270">
               <span class="contact-way-icon" aria-hidden="true">☎</span>
-              <span><strong>644 738 270</strong><small>Lunes a viernes · 9:00 a 20:00</small></span>
+              <span><strong>644 738 270</strong><small>L–V · 9 a 20 h</small></span>
             </a>
             <a class="contact-way" href="https://wa.me/34644738270?text=Hola%20Sergio%2C%20quiero%20pedir%20una%20auditor%C3%ADa%20SEO%20gratuita" target="_blank" rel="noopener">
               <span class="contact-way-icon" aria-hidden="true">✆</span>
-              <span><strong>WhatsApp</strong><small>Escríbeme y te contesto en el día</small></span>
+              <span><strong>WhatsApp</strong><small>Te contesto en el día</small></span>
             </a>
             <a class="contact-way" href="https://www.linkedin.com/in/sergio-garcia-consultor-marketing/" target="_blank" rel="noopener">
               <span class="contact-way-icon" aria-hidden="true">in</span>
-              <span><strong>LinkedIn</strong><small>Sergio García · consultor SEO</small></span>
+              <span><strong>LinkedIn</strong><small>Sergio García</small></span>
             </a>
           </div>
+
+          <p class="contact-prices">Consultoría mensual desde 300 € al mes · auditoría SEO completa desde 900 € · proyectos a medida a consultar.</p>
         </div>
 
-        <div class="form-card reveal" id="formulario">
+        <div class="form-card form-card-hero" id="formulario">
           <form id="form-contacto" class="form wizard" action="/api/contacto/" method="POST" novalidate data-wizard>
             <div class="wizard-progress" aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
 
-            <!-- Paso 1 -->
             <fieldset class="wizard-step is-active" data-step="1">
               <p class="wizard-kicker">Paso 1 de 3</p>
               <p class="wizard-title" data-title-web="¿Cuál es tu web?" data-title-noweb="¿Cómo se llama tu negocio?">¿Cuál es tu web?</p>
@@ -169,7 +170,6 @@
               <button class="btn btn-primary form-submit wizard-next" type="button">Analizar mi web →</button>
             </fieldset>
 
-            <!-- Paso 2 -->
             <fieldset class="wizard-step" data-step="2">
               <p class="wizard-kicker">Paso 2 de 3</p>
               <p class="wizard-title">¿Qué quieres conseguir?</p>
@@ -183,7 +183,6 @@
               <button class="wizard-back" type="button">← Atrás</button>
             </fieldset>
 
-            <!-- Paso 3 -->
             <fieldset class="wizard-step" data-step="3">
               <p class="wizard-kicker">Paso 3 de 3</p>
               <p class="wizard-title">¿A dónde te lo envío?</p>
@@ -199,14 +198,19 @@
               <p class="form-status" role="status" aria-live="polite"></p>
               <button class="wizard-back" type="button">← Atrás</button>
             </fieldset>
-
-            <!-- Enviado -->
-            <div class="wizard-done" hidden>
-              <p class="wizard-kicker">Recibido</p>
-              <p class="wizard-title">Gracias, ya tengo tus datos</p>
-              <p class="form-note">Reviso tu caso y te respondo personalmente en menos de 24 horas laborables. Si es urgente, llámame al <a href="tel:+34644738270">644 738 270</a>.</p>
-            </div>
           </form>
+          <div class="form-trust">
+            <p class="form-trust-title">Qué incluye la auditoría gratuita</p>
+            <ul class="form-trust-list">
+              <li>Estado técnico de tu web: indexación, velocidad y errores</li>
+              <li>Por qué búsquedas apareces hoy y quién te gana</li>
+              <li>Las tres oportunidades con más impacto para tu negocio</li>
+            </ul>
+            <div class="form-trust-who">
+              <img src="/images/consultor-seo.png" alt="" width="40" height="40" loading="lazy">
+              <p><strong>Te responde Sergio García</strong><span>Consultor SEO · respuesta en menos de 24 h</span></p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -459,6 +463,6 @@
   }, true);
 })();
   </script>
-  <script src="/script.js?v=20261025c" defer></script>
+  <script src="/script.js?v=20261025d" defer></script>
 </body>
 </html>

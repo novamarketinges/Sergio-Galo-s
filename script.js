@@ -183,11 +183,6 @@ if (queryEl && !reducedMotion) {
     if (!form.querySelector('input[name="objetivo"]:checked')) { e.preventDefault(); e.stopImmediatePropagation(); show(2); err(2, "Elige una opción"); }
   }, true);
 
-  form.addEventListener("form:enviado", function () {
-    for (var i = 0; i < steps.length; i++) steps[i].classList.remove("is-active");
-    form.querySelector(".wizard-progress").hidden = true;
-    form.querySelector(".wizard-done").hidden = false;
-  });
 
   show(1);
 })();
@@ -230,9 +225,11 @@ if (contactForm) {
       }
       status.textContent = "Recibido. Te respondo personalmente en menos de 24 horas laborables.";
       status.classList.add("is-ok");
+      var eventId = (contactForm.elements.eventId && contactForm.elements.eventId.value) || "";
+      try { sessionStorage.setItem("sg_lead_ok", JSON.stringify({ t: Date.now(), page: location.pathname, eventId: eventId })); } catch (e) {}
+      if (window.dataLayer) window.dataLayer.push({ event: "form_contacto_enviado", event_id: eventId, form_page: location.pathname });
       contactForm.reset();
-      contactForm.dispatchEvent(new CustomEvent("form:enviado"));
-      if (window.dataLayer) window.dataLayer.push({ event: "form_contacto_enviado" });
+      window.location.href = "/gracias/";
     } catch (err) {
       const srv = err && err.message ? err.message.replace(/^HTTP (\d+)\s?/, "") : "";
       status.textContent = (/^HTTP 400/.test(err && err.message) && srv)
