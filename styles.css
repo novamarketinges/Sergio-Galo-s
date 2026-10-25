@@ -4205,3 +4205,4 @@ a.geo-card:hover {
   .bento { grid-template-columns: 1fr; }
   .bento-card, .bento-card.bento-wide, .bento-card:first-child { grid-column: auto; }
 }
+.bp-ai .stars5 { color: #d9900a; letter-spacing: 1px; white-space: nowrap; }
