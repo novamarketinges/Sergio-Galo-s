@@ -4206,3 +4206,27 @@ a.geo-card:hover {
   .bento-card, .bento-card.bento-wide, .bento-card:first-child { grid-column: auto; }
 }
 .bp-ai .stars5 { color: #d9900a; letter-spacing: 1px; white-space: nowrap; }
+
+/* ============================================================
+   Heros de On Page, Off Page y GEO
+   ============================================================ */
+
+.onpage-hero, .offpage-hero, .geo-hero {
+  max-width: 460px;
+  margin-inline: auto;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(11, 21, 38, 0.12);
+}
+
+.op-score { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.op-score div { display: grid; gap: 2px; }
+.op-score strong { font-family: var(--font-display); font-size: 1.15rem; color: var(--tinta); }
+.op-score small { font-family: var(--font-mono); font-size: 0.7rem; color: var(--gris); }
+
+.offpage-hero .bento-panel { min-height: 190px; margin: 0 0 12px; }
+.op-tiles { margin-bottom: 0; }
+.op-tiles .report-val { font-size: 1.3rem; }
+
+.geo-hero .bp-ai { padding: 0; }
+.geo-sources { display: flex; flex-wrap: wrap; gap: 6px; }
+.geo-sources .src-muted { border-color: var(--niebla); color: var(--gris); padding-left: 12px; }
