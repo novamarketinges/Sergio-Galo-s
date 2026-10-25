@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles.css?v=20261025j">
+  <link rel="stylesheet" href="/styles.css?v=20261025l">
 
   <script type="application/ld+json">
   {
@@ -240,18 +240,18 @@
         </div>
 
         <figure class="hero-figure hero-figure-local">
-          <div class="viz geo-hero" aria-hidden="true">
-            <p class="viz-label">Respuesta de un asistente de IA · consulta real de un cliente</p>
-            <div class="bp-ai">
-              <div class="msg me">¿Qué empresa de reformas me recomiendas en Sabadell para una cocina?</div>
-              <div class="msg ai"><span class="av">IA</span><p>Tres opciones bien valoradas son <b>Tu empresa</b>, con proyectos de cocina desde 6.000 € y 4,9 en Google <i>1</i>, Competidor A <i>2</i> y Competidor B <i>3</i>.</p></div>
-              <div class="geo-sources">
-                <span class="src"><span class="fav"></span>tuempresa.es <small>· 1</small></span>
-                <span class="src src-muted">google.com/maps <small>· 2</small></span>
-                <span class="src src-muted">guía local <small>· 3</small></span>
-              </div>
+          <div class="viz v2-ais" aria-hidden="true">
+            <p class="viz-label">Pregunta: “¿Qué empresa de reformas me recomiendas en Sabadell?”</p>
+            <div class="ai-grid">
+              <div class="ai-t on"><b>ChatGPT</b><span>Citada 1.ª</span></div>
+              <div class="ai-t on"><b>Gemini</b><span>Citada 1.ª</span></div>
+              <div class="ai-t on"><b>Perplexity</b><span>Citada 2.ª</span></div>
+              <div class="ai-t on"><b>AI Overviews</b><span>Fuente citada</span></div>
+              <div class="ai-t on"><b>Copilot</b><span>Citada 3.ª</span></div>
+              <div class="ai-t off"><b>Claude</b><span>Aún no aparece</span></div>
             </div>
-            <div class="viz-foot"><span>Citada como primera opción en <b>4 de 5</b> asistentes</span></div>
+            <div class="ai-quote"><span class="av">IA</span><p>“<b>Tu empresa</b> hace reformas de cocina desde 6.000 € y tiene un 4,9 en Google.”</p></div>
+            <div class="viz-foot"><span>Te citan <b>5 de 6</b> asistentes</span><span>Hace seis meses: <b>0 de 6</b></span></div>
           </div>
         </figure>
       </div>
@@ -265,16 +265,22 @@
           <p>Las respuestas de la IA concentran la atención en muy pocos nombres. Si el tuyo no está, el cliente ni siquiera llega a ver tu web.</p>
         </div>
         <div class="showcase reveal">
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Menciones de tu negocio por asistente · 30 preguntas de clientes</p>
-            <div class="hbars"><div class="hbar"><span class="hbar-name">ChatGPT</span><span class="hbar-track"><i style="--w:80%;background:var(--azul)"></i></span><span class="hbar-val">24/30</span></div><div class="hbar"><span class="hbar-name">Gemini</span><span class="hbar-track"><i style="--w:70%;background:var(--azul)"></i></span><span class="hbar-val">21/30</span></div><div class="hbar"><span class="hbar-name">Perplexity</span><span class="hbar-track"><i style="--w:63%;background:var(--azul)"></i></span><span class="hbar-val">19/30</span></div><div class="hbar"><span class="hbar-name">AI Overv.</span><span class="hbar-track"><i style="--w:57%;background:var(--marino)"></i></span><span class="hbar-val">17/30</span></div><div class="hbar"><span class="hbar-name">Copilot</span><span class="hbar-track"><i style="--w:47%;background:var(--marino)"></i></span><span class="hbar-val">14/30</span></div><div class="hbar"><span class="hbar-name">Claude</span><span class="hbar-track"><i style="--w:43%;background:var(--marino)"></i></span><span class="hbar-val">13/30</span></div></div>
-            <div class="viz-foot"><span>Medición mensual con las mismas preguntas</span></div>
+          <div class="viz v2-aio" aria-hidden="true">
+            <p class="viz-label">Google con AI Overview · lo que ve tu cliente</p>
+            <div class="aio-search">reforma de cocina precio sabadell</div>
+            <div class="aio-box">
+              <p class="aio-h">✦ Vista creada con IA</p>
+              <p class="aio-t">Una reforma de cocina en Sabadell cuesta entre 6.000 y 15.000 € según metros y acabados, con un plazo habitual de cuatro semanas.</p>
+              <div class="aio-src"><span class="me"><i></i>tuempresa.es</span><span><i></i>guía de precios</span><span><i></i>foro</span></div>
+            </div>
+            <div class="aio-org"><p>competidor-a.es › reformas</p><b>Reformas de cocina · Competidor A</b></div>
+            <div class="viz-foot"><span>El primer resultado queda debajo del resumen</span></div>
           </div>
 
           <div class="showcase-note">
-            <p class="showcase-kicker">Lo que no se mide no mejora</p>
-            <p>Cada mes lanzo las mismas treinta preguntas que harían tus clientes en los principales asistentes y registro si apareces y cómo te describen. Así se ve qué funciona y qué asistente necesita más trabajo.</p>
-            <p class="showcase-stat"><b>30</b><span>preguntas de clientes medidas cada mes</span></p>
+            <p class="showcase-kicker">Arriba de todo, la IA</p>
+            <p>Cuando Google muestra un resumen creado con IA, el cliente lee la respuesta antes de ver ningún enlace. Las webs citadas en ese resumen reciben la atención y los clics. El primer resultado orgánico queda por debajo, aunque esté bien posicionado.</p>
+            <p class="showcase-stat"><b>1.ª</b><span>posición real: dentro del resumen, por encima de los resultados</span></p>
           </div>
         </div>
         <div class="services-grid services-grid-3">
@@ -305,17 +311,28 @@
           <p>Cuatro frentes para que la IA te encuentre, te entienda y confíe lo bastante en ti como para recomendarte.</p>
         </div>
         <div class="showcase showcase-flip reveal">
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Preguntas que tus clientes hacen a la IA</p>
-            <div class="kwhead"><span>Pregunta</span><span>Tipo</span><span>Canal</span></div>
-            <div class="kwlist"><div class="kwrow is-hot"><span class="kw">qué empresa de reformas me recomiendas en sabadell</span><span class="chip chip-blue">Recomendación</span><span class="vol">IA</span></div><div class="kwrow is-hot"><span class="kw">cuánto cuesta reformar una cocina de 10 m2</span><span class="chip chip-blue">Precio</span><span class="vol">IA</span></div><div class="kwrow is-hot"><span class="kw">mejor clínica dental en terrassa con financiación</span><span class="chip chip-blue">Comparativa</span><span class="vol">IA</span></div><div class="kwrow"><span class="kw">qué hay que mirar antes de contratar una reforma</span><span class="chip chip-muted">Informativa</span><span class="vol">IA</span></div><div class="kwrow"><span class="kw">cuánto tarda una reforma integral</span><span class="chip chip-muted">Informativa</span><span class="vol">IA</span></div></div>
-            <div class="viz-foot"><span>Preguntas largas y concretas, como se habla</span></div>
+          <div class="viz v2-extract" aria-hidden="true">
+            <p class="viz-label">De una frase de tu web a una cita de la IA</p>
+            <div class="ex-grid">
+              <div class="ex-web">
+                <p class="ex-k">tuempresa.es/reformas-cocina/</p>
+                <i></i><i class="s"></i>
+                <mark>Una reforma de cocina de 10 m² cuesta desde 6.000 € y tarda unas cuatro semanas.</mark>
+                <i></i><i class="s"></i>
+              </div>
+              <div class="ex-arrow">→</div>
+              <div class="ex-ai">
+                <p class="ex-k">Respuesta del asistente</p>
+                <p>Para una cocina de 10 m² calcula <b>desde 6.000 €</b> y unas <b>cuatro semanas</b> de obra <span class="cit">1</span></p>
+              </div>
+            </div>
+            <div class="viz-foot"><span>Frase corta, dato concreto, fácil de citar</span></div>
           </div>
 
           <div class="showcase-note">
-            <p class="showcase-kicker">Se pregunta como se habla</p>
-            <p>A un asistente nadie le escribe tres palabras sueltas. Se le hacen preguntas completas, con ciudad, presupuesto y matices. Tu web tiene que responder a esas preguntas de forma directa para que la IA la use como fuente.</p>
-            <p class="showcase-stat"><b>3</b><span>negocios suele citar una respuesta de IA</span></p>
+            <p class="showcase-kicker">Escribir para ser citado</p>
+            <p>Los asistentes no copian párrafos largos ni frases vagas. Toman frases cortas con un dato concreto y las citan con su fuente. Por eso reescribo las páginas clave para que cada respuesta importante quepa en una frase que la IA pueda usar tal cual.</p>
+            <p class="showcase-stat"><b>1 frase</b><span>con un dato concreto por cada pregunta importante</span></p>
           </div>
         </div>
         <div class="services-grid">
@@ -396,16 +413,24 @@
         <div class="section-head method-head reveal">
           <p class="eyebrow">Método</p>
           <h2>Cómo trabajo tu visibilidad en la IA</h2>
-          <p>Tres fases con entregables concretos. Lo primero es medir cómo te ven hoy los asistentes, porque sin esa foto inicial no se puede saber si el trabajo funciona.</p>
+          <p>Tres fases con entregables concretos. Antes de escribir nada, mido cómo te ven los asistentes y ordeno los datos básicos de tu negocio para que la IA te reconozca como una entidad clara.</p>
           <ul class="method-facts">
             <li><strong>Sin permanencia</strong><span>Cada fase tiene un entregable propio</span></li>
             <li><strong>Un solo interlocutor</strong><span>Quien analiza es quien ejecuta</span></li>
           </ul>
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Señales que usa la IA · estado de tu web</p>
-            <div class="check-sum"><i style="flex:12"></i><i style="flex:4"></i><i style="flex:2"></i></div>
-            <div class="check"><div class="check-row"><span>Página de empresa con datos completos</span><span class="chip chip-ok">OK</span></div><div class="check-row"><span>Schema Organization y LocalBusiness</span><span class="chip chip-ok">OK</span></div><div class="check-row"><span>Respuestas directas a preguntas de clientes</span><span class="chip chip-warn">Parcial</span></div><div class="check-row"><span>Reseñas recientes en Google</span><span class="chip chip-ok">OK</span></div><div class="check-row"><span>Menciones en medios del sector</span><span class="chip chip-err">Faltan</span></div></div>
-            <div class="viz-foot"><span><b>12</b> listas</span><span><b>4</b> parciales</span><span><b>2</b> faltan</span></div>
+          <div class="viz v2-entity" aria-hidden="true">
+            <p class="viz-label">Tu negocio como entidad · lo que la IA sabe de ti</p>
+            <svg viewBox="0 0 300 180" preserveAspectRatio="xMidYMid meet">
+              <path d="M150 90 L60 34"/><path d="M150 90 L240 34"/><path d="M150 90 L38 104"/><path d="M150 90 L262 104"/><path d="M150 90 L92 160"/><path d="M150 90 L208 160"/>
+              <g class="en"><rect x="14" y="22" width="92" height="24" rx="12"/><text x="60" y="38">Reformas</text></g>
+              <g class="en"><rect x="194" y="22" width="92" height="24" rx="12"/><text x="240" y="38">Sabadell</text></g>
+              <g class="en"><rect x="2" y="92" width="72" height="24" rx="12"/><text x="38" y="108">4,9 ★</text></g>
+              <g class="en"><rect x="222" y="92" width="78" height="24" rx="12"/><text x="261" y="108">Desde 6.000 €</text></g>
+              <g class="en"><rect x="40" y="148" width="104" height="24" rx="12"/><text x="92" y="164">L a V · 8 a 19 h</text></g>
+              <g class="en"><rect x="160" y="148" width="96" height="24" rx="12"/><text x="208" y="164">Desde 2009</text></g>
+              <g class="ec"><circle cx="150" cy="90" r="30"/><text x="150" y="87">Tu</text><text x="150" y="100">empresa</text></g>
+            </svg>
+            <div class="viz-foot"><span>Los mismos datos en tu web, Google y directorios</span></div>
           </div>
         </div>
 
@@ -446,24 +471,16 @@
           <p>Es un canal nuevo, pero ya se puede medir. Así evoluciona un negocio cuando su web y su reputación están preparadas para los asistentes.</p>
         </div>
         <div class="showcase showcase-flip reveal">
-          <div class="viz viz-chart" aria-hidden="true">
-            <p class="viz-label">Respuestas de IA que citan tu negocio · 6 meses</p>
-            <svg viewBox="0 0 320 120" preserveAspectRatio="none">
-              <defs><linearGradient id="gGEO" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2140e8" stop-opacity="0.25"/><stop offset="1" stop-color="#2140e8" stop-opacity="0"/></linearGradient></defs>
-              <path d="M0 104 C30 102 55 98 85 90 S140 68 180 54 S250 24 320 12 L320 120 L0 120 Z" fill="url(#gGEO)"/>
-              <path d="M0 104 C30 102 55 98 85 90 S140 68 180 54 S250 24 320 12" fill="none" stroke="#2140e8" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="85" cy="90" r="4" fill="#fff" stroke="#2140e8" stroke-width="2"/>
-              <circle cx="320" cy="12" r="4" fill="#2140e8"/>
-            </svg>
-            <span class="chart-note" style="left:22%;top:52%">Páginas reescritas y schema</span>
-            <div class="chart-axis"><span>mes 1</span><span>mes 6</span></div>
-            <div class="viz-foot"><span>Citas en 30 preguntas</span><span><b>de 3 a 21</b></span></div>
+          <div class="viz v2-share" aria-hidden="true">
+            <p class="viz-label">Cuota de voz en las respuestas de IA · 30 preguntas al mes</p>
+            <div class="sh-row"><span>Mes 1</span><div class="sh-bar"><i class="y" style="--w:5%"></i><i class="c" style="--w:55%"></i><i class="o" style="--w:40%"></i></div><b>5 %</b></div><div class="sh-row"><span>Mes 2</span><div class="sh-bar"><i class="y" style="--w:12%"></i><i class="c" style="--w:50%"></i><i class="o" style="--w:38%"></i></div><b>12 %</b></div><div class="sh-row"><span>Mes 3</span><div class="sh-bar"><i class="y" style="--w:20%"></i><i class="c" style="--w:44%"></i><i class="o" style="--w:36%"></i></div><b>20 %</b></div><div class="sh-row"><span>Mes 4</span><div class="sh-bar"><i class="y" style="--w:29%"></i><i class="c" style="--w:38%"></i><i class="o" style="--w:33%"></i></div><b>29 %</b></div><div class="sh-row"><span>Mes 5</span><div class="sh-bar"><i class="y" style="--w:37%"></i><i class="c" style="--w:33%"></i><i class="o" style="--w:30%"></i></div><b>37 %</b></div><div class="sh-row"><span>Mes 6</span><div class="sh-bar"><i class="y" style="--w:45%"></i><i class="c" style="--w:28%"></i><i class="o" style="--w:27%"></i></div><b>45 %</b></div>
+            <div class="sh-leg"><span><i class="y"></i>Tu negocio</span><span><i class="c"></i>Competidor principal</span><span><i class="o"></i>Otros</span></div>
           </div>
 
           <div class="showcase-note">
-            <p class="showcase-kicker">Del silencio a la recomendación</p>
-            <p>Al principio casi ningún asistente mencionaba al negocio. Con las páginas reescritas, la entidad bien definida y nuevas menciones en el sector, las citas suben mes a mes hasta superar al competidor que dominaba las respuestas.</p>
-            <p class="showcase-stat"><b>3 → 21</b><span>respuestas de 30 que citan el negocio</span></p>
+            <p class="showcase-kicker">Cuota de voz en la IA</p>
+            <p>Cada mes lanzo las mismas treinta preguntas en los principales asistentes y cuento qué negocio aparece en cada respuesta. Al principio dominaba un competidor. Con contenido citable, entidad clara y nuevas reseñas, el reparto se invierte en seis meses.</p>
+            <p class="showcase-stat"><b>5 → 45 %</b><span>de las respuestas mencionan tu negocio</span></p>
           </div>
         </div>
         <h3 class="sub-head reveal">Negocios que ya aparecen en las respuestas de la IA</h3>
@@ -784,6 +801,6 @@
   }, true);
 })();
   </script>
-  <script src="/script.js?v=20261025j" defer></script>
+  <script src="/script.js?v=20261025l" defer></script>
 </body>
 </html>

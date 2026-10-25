@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles.css?v=20261025j">
+  <link rel="stylesheet" href="/styles.css?v=20261025l">
 
   <script type="application/ld+json">
   {
@@ -240,20 +240,18 @@
         </div>
 
         <figure class="hero-figure hero-figure-local">
-          <div class="viz onpage-hero" aria-hidden="true">
-            <p class="viz-label">Análisis On Page · tuweb.es/servicios/reformas-cocina/</p>
-            <div class="op-score">
-              <span class="ring" style="--p:94">94</span>
-              <div><strong>Página optimizada</strong><small>antes 41 · ahora 94 sobre 100</small></div>
+          <div class="viz v2-anat" aria-hidden="true">
+            <p class="viz-label">Anatomía de una página optimizada · /reformas-cocina/</p>
+            <div class="anat-frame">
+              <div class="anat-bar"><i></i><i></i><i></i><span>tuweb.es/servicios/reformas-cocina/</span></div>
+              <div class="anat-row"><div class="anat-mock m-title">Reforma de cocina: precio por m² y plazos</div><span class="anat-tag">Title</span></div>
+              <div class="anat-row"><div class="anat-mock m-h1"><b></b></div><span class="anat-tag">H1 con la búsqueda</span></div>
+              <div class="anat-row"><div class="anat-mock m-lines"><i></i><i></i><i class="s"></i></div><span class="anat-tag">Respuesta directa</span></div>
+              <div class="anat-row"><div class="anat-mock m-cards"><i>6.000 €</i><i>4 sem.</i><i>Garantía</i></div><span class="anat-tag">Precios y plazos</span></div>
+              <div class="anat-row"><div class="anat-mock m-faq"><i>▾ ¿Cuánto cuesta?</i><i>▾ ¿Cuánto tarda?</i></div><span class="anat-tag">FAQ con schema</span></div>
+              <div class="anat-row"><div class="anat-mock m-cta"><b>Pedir presupuesto</b></div><span class="anat-tag">CTA visible</span></div>
             </div>
-            <div class="check">
-              <div class="check-row"><span>Title con la búsqueda principal</span><span class="chip chip-ok">OK</span></div>
-              <div class="check-row"><span>H1 único y alineado con la intención</span><span class="chip chip-ok">OK</span></div>
-              <div class="check-row"><span>Responde las 6 dudas más buscadas</span><span class="chip chip-ok">6 de 6</span></div>
-              <div class="check-row"><span>Enlaces internos desde páginas fuertes</span><span class="chip chip-ok">8</span></div>
-              <div class="check-row"><span>Schema Service y FAQPage</span><span class="chip chip-ok">Válido</span></div>
-            </div>
-            <div class="viz-foot"><span>Posición media <b>14 → 3</b></span><span>Clics <b>×3,2</b></span></div>
+            <div class="viz-foot"><span>Puntuación de la página <b>41 → 94</b></span><span>Posición <b>14 → 3</b></span></div>
           </div>
         </figure>
       </div>
@@ -267,17 +265,35 @@
           <p>Muchas webs tienen buen producto y buenos servicios, pero sus páginas no responden a lo que la gente escribe en Google. El trabajo On Page corrige eso página a página.</p>
         </div>
         <div class="showcase reveal">
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Búsquedas por intención · reformas de cocina</p>
-            <div class="kwhead"><span>Búsqueda</span><span>Intención</span><span>Vol./mes</span></div>
-            <div class="kwlist"><div class="kwrow is-hot"><span class="kw">reforma cocina precio m2</span><span class="chip chip-blue">Transaccional</span><span class="vol">2.900</span></div><div class="kwrow is-hot"><span class="kw">empresa reformas cocina sabadell</span><span class="chip chip-ok">Local</span><span class="vol">320</span></div><div class="kwrow is-hot"><span class="kw">presupuesto reforma cocina</span><span class="chip chip-blue">Transaccional</span><span class="vol">1.600</span></div><div class="kwrow"><span class="kw">ideas cocina pequeña</span><span class="chip chip-muted">Informativa</span><span class="vol">9.900</span></div><div class="kwrow"><span class="kw">cuánto dura una reforma de cocina</span><span class="chip chip-muted">Informativa</span><span class="vol">880</span></div></div>
-            <div class="viz-foot"><span>Cada intención pide un tipo de página distinto</span></div>
+          <div class="viz v2-funnel" aria-hidden="true">
+            <p class="viz-label">Intención de búsqueda · reformas de cocina</p>
+            <div class="fn-cols">
+              <div class="fn-col c1">
+                <p class="fn-head">Se informa</p>
+                <span class="fn-kw">ideas cocina pequeña <small>9.900</small></span>
+                <span class="fn-kw">cuánto dura una reforma <small>880</small></span>
+                <p class="fn-page">→ Artículo del blog</p>
+              </div>
+              <div class="fn-col c2">
+                <p class="fn-head">Compara</p>
+                <span class="fn-kw">mejor encimera cocina <small>1.300</small></span>
+                <span class="fn-kw">cocina abierta o cerrada <small>720</small></span>
+                <p class="fn-page">→ Guía comparativa</p>
+              </div>
+              <div class="fn-col c3">
+                <p class="fn-head">Quiere contratar</p>
+                <span class="fn-kw">reforma cocina precio m2 <small>2.900</small></span>
+                <span class="fn-kw">empresa reformas sabadell <small>320</small></span>
+                <p class="fn-page">→ Página de servicio</p>
+              </div>
+            </div>
+            <div class="viz-foot"><span>Cada fase del cliente tiene su propia página</span></div>
           </div>
 
           <div class="showcase-note">
-            <p class="showcase-kicker">Una página para cada intención</p>
-            <p>Quien busca el precio de una reforma quiere cifras y plazos. Quien busca ideas quiere inspiración. Mezclar las dos cosas en la misma página hace que no posicione para ninguna. El primer paso es separar las búsquedas y asignar a cada una su página.</p>
-            <p class="showcase-stat"><b>1 búsqueda</b><span>principal por página, sin que dos páginas compitan</span></p>
+            <p class="showcase-kicker">Una página para cada momento</p>
+            <p>Quien busca ideas para una cocina pequeña todavía no quiere presupuesto. Quien escribe precio por metro cuadrado, sí. Si las dos búsquedas caen en la misma página, no posiciona para ninguna. Por eso cada fase del cliente tiene su propia página y cada una lleva a la siguiente.</p>
+            <p class="showcase-stat"><b>3 fases</b><span>informarse, comparar y contratar, cada una con su página</span></p>
           </div>
         </div>
         <div class="services-grid services-grid-3">
@@ -308,15 +324,29 @@
           <p>Cuatro frentes de trabajo dentro de tu web, ordenados por el impacto que tienen en el posicionamiento y en los contactos que recibes.</p>
         </div>
         <div class="showcase showcase-flip reveal">
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Arquitectura de la web · antes de reorganizar</p>
-            <div class="tree"><div class="tree-row is-root"><span class="tree-path"><span class="guide"></span>tuweb.es/</span><span class="chip chip-blue">home</span></div><div class="tree-row"><span class="tree-path"><span class="guide">├── </span>/servicios/</span><span class="chip chip-ok">1 clic</span></div><div class="tree-row"><span class="tree-path"><span class="guide">│   ├── </span>/servicios/reformas-cocina/</span><span class="chip chip-ok">2 clics</span></div><div class="tree-row"><span class="tree-path"><span class="guide">│   └── </span>/servicios/reformas-banos/</span><span class="chip chip-ok">2 clics</span></div><div class="tree-row"><span class="tree-path"><span class="guide">├── </span>/blog/2019/05/ideas-cocina/</span><span class="chip chip-warn">5 clics</span></div><div class="tree-row is-off"><span class="tree-path"><span class="guide">├── </span>/pagina-antigua-reformas/</span><span class="chip chip-err">duplicada</span></div><div class="tree-row is-off"><span class="tree-path"><span class="guide">└── </span>/tag/cocinas/</span><span class="chip chip-err">sin valor</span></div></div>
-            <div class="viz-foot"><span>Lo que vende, a un clic de la home. Lo que sobra, fuera del índice</span></div>
+          <div class="viz v2-silo" aria-hidden="true">
+            <p class="viz-label">Arquitectura en silos · cómo fluye la autoridad</p>
+            <svg viewBox="0 0 320 178" preserveAspectRatio="xMidYMid meet">
+              <path class="fl w3" d="M160 30 L70 74"/><path class="fl w2" d="M160 30 L160 74"/><path class="fl w1" d="M160 30 L250 74"/>
+              <path class="fl w2" d="M70 96 L30 138"/><path class="fl w2" d="M70 96 L80 138"/><path class="fl w2" d="M70 96 L130 138"/>
+              <path class="fl w1" d="M160 96 L190 138"/><path class="fl w1" d="M160 96 L250 138"/>
+              <path class="il" d="M190 150 Q160 168 130 152"/><path class="il" d="M250 150 Q170 176 82 152"/>
+              <g class="n root"><rect x="120" y="10" width="80" height="22" rx="7"/><text x="160" y="25">Home</text></g>
+              <g class="n l2"><rect x="30" y="74" width="80" height="22" rx="7"/><text x="70" y="89">Servicios</text></g>
+              <g class="n l2 muted"><rect x="120" y="74" width="80" height="22" rx="7"/><text x="160" y="89">Blog</text></g>
+              <g class="n l2 muted"><rect x="210" y="74" width="80" height="22" rx="7"/><text x="250" y="89">Sobre mí</text></g>
+              <g class="n l3"><rect x="4" y="138" width="54" height="20" rx="6"/><text x="31" y="152">Cocinas</text></g>
+              <g class="n l3"><rect x="62" y="138" width="44" height="20" rx="6"/><text x="84" y="152">Baños</text></g>
+              <g class="n l3"><rect x="110" y="138" width="46" height="20" rx="6"/><text x="133" y="152">Integral</text></g>
+              <g class="n l3 art"><rect x="166" y="138" width="50" height="20" rx="6"/><text x="191" y="152">Artículo</text></g>
+              <g class="n l3 art"><rect x="224" y="138" width="50" height="20" rx="6"/><text x="249" y="152">Artículo</text></g>
+            </svg>
+            <div class="silo-legend"><span><i class="lg-a"></i>Autoridad desde la home</span><span><i class="lg-b"></i>Enlace interno del blog al servicio</span></div>
           </div>
 
           <div class="showcase-note">
             <p class="showcase-kicker">La estructura también posiciona</p>
-            <p>Google reparte la autoridad de tu web siguiendo los enlaces internos. Si las páginas que venden están enterradas a cinco clics y el blog antiguo ocupa el primer nivel, la autoridad va al sitio equivocado. Reorganizar la estructura suele dar resultados antes que escribir contenido nuevo.</p>
+            <p>La autoridad entra por la home y baja por los enlaces internos. Si los servicios cuelgan directamente de ella y los artículos del blog enlazan hacia el servicio relacionado, la fuerza llega a las páginas que generan llamadas en lugar de quedarse en el blog o en páginas sin valor.</p>
             <p class="showcase-stat"><b>2 clics</b><span>como máximo entre la home y cualquier página que vende</span></p>
           </div>
         </div>
@@ -399,15 +429,22 @@
         <div class="section-head method-head reveal">
           <p class="eyebrow">Método</p>
           <h2>Cómo trabajo el SEO On Page de tu web</h2>
-          <p>Tres fases con entregables concretos. Empiezo por las páginas que ya están cerca de la primera página, porque son las que antes dan resultados.</p>
+          <p>Tres fases con entregables concretos. Cada página que optimizo parte de un briefing como este, con su búsqueda, las preguntas que debe responder y los enlaces que recibe.</p>
           <ul class="method-facts">
             <li><strong>Sin permanencia</strong><span>Cada fase tiene un entregable propio</span></li>
             <li><strong>Un solo interlocutor</strong><span>Quien analiza es quien ejecuta</span></li>
           </ul>
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Resultados de Google · "reforma cocina precio"</p>
-            <div class="serp-list"><div class="serp-item"><p class="u">competidor-a.es › reformas</p><p class="t"><span>Reformas de cocina · Competidor A</span></p><p class="d">Reformamos tu cocina con los mejores materiales…</p></div><div class="serp-item is-you"><p class="u">tuweb.es › reformas-cocina</p><p class="t"><span>Reforma de cocina: precio por m² y plazos reales</span><span class="rank-chip">▲ 14 → 3</span></p><p class="d">Desde 6.000 € con proyecto incluido. Preguntas frecuentes…</p></div><div class="serp-item"><p class="u">competidor-b.com › cocinas</p><p class="t"><span>Cocinas a medida · Competidor B</span></p><p class="d">Diseño y montaje de cocinas…</p></div></div>
-            <div class="viz-foot"><span>Misma URL, nuevo contenido y estructura</span></div>
+          <div class="viz v2-brief" aria-hidden="true">
+            <p class="viz-label">Briefing de página · entregable de la fase 2</p>
+            <div class="br-doc">
+              <p class="br-title">Reforma de cocina en Sabadell</p>
+              <div class="br-row"><span>Búsqueda principal</span><b>reforma cocina precio m2</b></div>
+              <div class="br-row"><span>Intención</span><b class="ok">Contratar</b></div>
+              <div class="br-row col"><span>Debe responder</span>
+                <ul><li>Precio orientativo por m²</li><li>Plazo de obra</li><li>Qué incluye el proyecto</li><li>Garantía y licencias</li></ul></div>
+              <div class="br-row"><span>Enlazar desde</span><b class="tags"><i>Home</i><i>Servicios</i><i>2 artículos</i></b></div>
+              <div class="br-row"><span>Llamada a la acción</span><b>Pedir presupuesto</b></div>
+            </div>
           </div>
         </div>
 
@@ -448,24 +485,21 @@
           <p>El On Page tiene una ventaja clara: cuando una página ya tiene algo de autoridad, reescribirla bien la sube en semanas.</p>
         </div>
         <div class="showcase showcase-flip reveal">
-          <div class="viz viz-chart" aria-hidden="true">
-            <p class="viz-label">Clics orgánicos · 20 páginas de servicio optimizadas</p>
-            <svg viewBox="0 0 320 120" preserveAspectRatio="none">
-              <defs><linearGradient id="gOP" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2140e8" stop-opacity="0.25"/><stop offset="1" stop-color="#2140e8" stop-opacity="0"/></linearGradient></defs>
-              <path d="M0 104 C30 102 55 98 85 90 S140 68 180 54 S250 24 320 12 L320 120 L0 120 Z" fill="url(#gOP)"/>
-              <path d="M0 104 C30 102 55 98 85 90 S140 68 180 54 S250 24 320 12" fill="none" stroke="#2140e8" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="85" cy="90" r="4" fill="#fff" stroke="#2140e8" stroke-width="2"/>
-              <circle cx="320" cy="12" r="4" fill="#2140e8"/>
-            </svg>
-            <span class="chart-note" style="left:20%;top:52%">Páginas reescritas</span>
-            <div class="chart-axis"><span>mes 1</span><span>mes 9</span></div>
-            <div class="viz-foot"><span>Clics desde Google</span><span><b>×3,2</b> en nueve meses</span></div>
+          <div class="viz v2-pages" aria-hidden="true">
+            <p class="viz-label">Páginas optimizadas · posición media en Google</p>
+            <div class="pg-head"><span>Página</span><span>Antes</span><span>Ahora</span><span>Evolución</span></div>
+            <div class="pg-row"><span class="pg-url">/reformas-cocina/</span><span class="pg-b">14</span><span class="pg-a">3</span><span class="pg-s"><svg viewBox="0 0 98 26"><polyline points="0,22.0 16,20.4 32,17.1 48,12.2 64,8.9 80,5.6 96,4.0"/><circle cx="96" cy="4.0" r="2.6"/></svg></span></div>
+            <div class="pg-row"><span class="pg-url">/reformas-banos/</span><span class="pg-b">11</span><span class="pg-a">4</span><span class="pg-s"><svg viewBox="0 0 98 26"><polyline points="0,22.0 16,22.0 32,16.9 48,14.3 64,9.1 80,6.6 96,4.0"/><circle cx="96" cy="4.0" r="2.6"/></svg></span></div>
+            <div class="pg-row"><span class="pg-url">/reforma-integral/</span><span class="pg-b">18</span><span class="pg-a">6</span><span class="pg-s"><svg viewBox="0 0 98 26"><polyline points="0,22.0 16,20.5 32,17.5 48,13.0 64,10.0 80,7.0 96,4.0"/><circle cx="96" cy="4.0" r="2.6"/></svg></span></div>
+            <div class="pg-row"><span class="pg-url">/cocinas-sabadell/</span><span class="pg-b">9</span><span class="pg-a">2</span><span class="pg-s"><svg viewBox="0 0 98 26"><polyline points="0,22.0 16,19.4 32,14.3 48,11.7 64,6.6 80,4.0 96,4.0"/><circle cx="96" cy="4.0" r="2.6"/></svg></span></div>
+            <div class="pg-row"><span class="pg-url">/reformas-terrassa/</span><span class="pg-b">22</span><span class="pg-a">7</span><span class="pg-s"><svg viewBox="0 0 98 26"><polyline points="0,22.0 16,20.8 32,17.2 48,12.4 64,8.8 80,6.4 96,4.0"/><circle cx="96" cy="4.0" r="2.6"/></svg></span></div>
+            <div class="viz-foot"><span>Cinco páginas reescritas · siete meses</span><span>Clics <b>×3,2</b></span></div>
           </div>
 
           <div class="showcase-note">
             <p class="showcase-kicker">Página a página</p>
-            <p>Cada página optimizada suma visitas de forma independiente. La curva sube por escalones a medida que se reescriben las páginas de la lista de prioridades, empezando por las que estaban en la segunda página de Google.</p>
-            <p class="showcase-stat"><b>×3,2</b><span>clics orgánicos en nueve meses</span></p>
+            <p>Cada página reescrita sube por su cuenta. En este caso, las cinco páginas de servicio que estaban entre la segunda y la tercera página de Google entraron en el top 7, y la de reformas de cocina pasó del puesto 14 al 3 en siete meses.</p>
+            <p class="showcase-stat"><b>14 → 3</b><span>posición de la página principal en siete meses</span></p>
           </div>
         </div>
         <h3 class="sub-head reveal">Webs que ganaron visibilidad con el trabajo On Page</h3>
@@ -786,6 +820,6 @@
   }, true);
 })();
   </script>
-  <script src="/script.js?v=20261025j" defer></script>
+  <script src="/script.js?v=20261025l" defer></script>
 </body>
 </html>

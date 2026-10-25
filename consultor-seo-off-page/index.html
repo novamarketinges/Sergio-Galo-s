@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles.css?v=20261025j">
+  <link rel="stylesheet" href="/styles.css?v=20261025l">
 
   <script type="application/ld+json">
   {
@@ -240,29 +240,20 @@
         </div>
 
         <figure class="hero-figure hero-figure-local">
-          <div class="viz offpage-hero" aria-hidden="true">
-            <p class="viz-label">Perfil de enlaces · tuweb.es · últimos 12 meses</p>
-            <div class="bento-panel bp-links">
-              <svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid meet">
-                <defs><linearGradient id="lkg" x1="0" x2="1"><stop offset="0" stop-color="#2140e8" stop-opacity=".15"/><stop offset="1" stop-color="#2140e8" stop-opacity=".7"/></linearGradient></defs>
-                <path d="M40 30 Q100 40 150 65" class="lk"/><path d="M36 100 Q100 95 150 65" class="lk"/><path d="M260 26 Q200 40 150 65" class="lk"/><path d="M264 104 Q200 92 150 65" class="lk"/><path d="M150 118 L150 65" class="lk"/>
-                <path d="M110 12 Q125 40 150 65" class="lk bad"/>
-                <g class="nd"><circle cx="40" cy="30" r="15"/><text x="40" y="34">72</text></g>
-                <g class="nd"><circle cx="36" cy="100" r="12"/><text x="36" y="104">48</text></g>
-                <g class="nd"><circle cx="260" cy="26" r="16"/><text x="260" y="30">81</text></g>
-                <g class="nd"><circle cx="264" cy="104" r="12"/><text x="264" y="108">55</text></g>
-                <g class="nd"><circle cx="150" cy="118" r="10"/><text x="150" y="122">39</text></g>
-                <g class="nd bad"><circle cx="110" cy="12" r="9"/><text x="110" y="16">!</text></g>
-                <g class="me"><circle cx="150" cy="65" r="22"/><text x="150" y="70">tú</text></g>
-              </svg>
-              <span class="bp-chip ok">+38 dominios de calidad</span>
-              <span class="bp-chip bad">1 tóxico desautorizado</span>
-            </div>
-            <div class="report-tiles op-tiles">
-              <div class="report-tile"><span class="report-name">Dominios que te enlazan</span><span class="report-val">124</span><span class="report-delta">▲ 38 en 12 meses</span></div>
-              <div class="report-tile"><span class="report-name">Autoridad del dominio</span><span class="report-val">18 → 34</span><span class="report-delta">▲ 16 puntos</span></div>
-              <div class="report-tile"><span class="report-name">Enlaces tóxicos</span><span class="report-val">0</span><span class="report-delta">desautorizados</span></div>
-            </div>
+          <div class="viz v2-scatter" aria-hidden="true">
+            <p class="viz-label">Mapa de enlaces · 124 dominios analizados</p>
+            <svg viewBox="0 0 300 190" preserveAspectRatio="xMidYMid meet">
+              <rect class="q q-ideal" x="150" y="10" width="140" height="80" rx="8"/>
+              <rect class="q q-bad" x="30" y="95" width="115" height="75" rx="8"/>
+              <text class="ql" x="158" y="23">Ideales</text>
+              <text class="ql bad" x="38" y="107">Sin valor o tóxicos</text>
+              <line class="ax" x1="30" y1="172" x2="292" y2="172"/><line class="ax" x1="30" y1="172" x2="30" y2="8"/>
+              <text class="at" x="292" y="186" text-anchor="end">Relevancia para tu sector →</text>
+              <text class="at" x="12" y="90" transform="rotate(-90 12 90)" text-anchor="middle">Autoridad →</text>
+              <circle class="good" cx="262" cy="28" r="6"/><circle class="good" cx="238" cy="44" r="6"/><circle class="good" cx="270" cy="60" r="6"/><circle class="good" cx="222" cy="30" r="6"/><circle class="good" cx="226" cy="70" r="6"/><circle class="good" cx="190" cy="52" r="6"/><circle class="good" cx="250" cy="80" r="6"/><circle class="mid" cx="176" cy="104" r="5"/><circle class="mid" cx="204" cy="118" r="5"/><circle class="mid" cx="232" cy="128" r="5"/><circle class="mid" cx="150" cy="124" r="5"/><circle class="mid" cx="122" cy="70" r="5"/><circle class="mid" cx="98" cy="48" r="5"/><circle class="mid" cx="186" cy="140" r="5"/><circle class="mid" cx="258" cy="112" r="5"/><circle class="bad" cx="60" cy="150" r="5"/><circle class="bad" cx="86" cy="140" r="5"/><circle class="bad" cx="48" cy="120" r="5"/><circle class="bad" cx="110" cy="156" r="5"/><circle class="bad" cx="124" cy="132" r="5"/>
+            </svg>
+            <div class="sc-legend"><span><i class="good"></i>Ideales <b>31</b></span><span><i class="mid"></i>Útiles <b>87</b></span><span><i class="bad"></i>Tóxicos <b>6</b></span></div>
+            <div class="viz-foot"><span>Objetivo: más puntos arriba a la derecha</span><span>Autoridad <b>18 → 34</b></span></div>
           </div>
         </figure>
       </div>
@@ -276,24 +267,19 @@
           <p>Cuando el contenido y la parte técnica están bien y aun así no subes, el problema suele estar en la autoridad. Estos son los casos más habituales.</p>
         </div>
         <div class="showcase reveal">
-          <div class="viz viz-chart" aria-hidden="true">
-            <p class="viz-label">Dominios que enlazan a tu web · 12 meses</p>
-            <svg viewBox="0 0 320 120" preserveAspectRatio="none">
-              <defs><linearGradient id="gOFF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2140e8" stop-opacity="0.25"/><stop offset="1" stop-color="#2140e8" stop-opacity="0"/></linearGradient></defs>
-              <path d="M0 104 C30 102 55 98 85 90 S140 68 180 54 S250 24 320 12 L320 120 L0 120 Z" fill="url(#gOFF)"/>
-              <path d="M0 104 C30 102 55 98 85 90 S140 68 180 54 S250 24 320 12" fill="none" stroke="#2140e8" stroke-width="2.5" stroke-linecap="round"/>
-              <circle cx="85" cy="90" r="4" fill="#fff" stroke="#2140e8" stroke-width="2"/>
-              <circle cx="320" cy="12" r="4" fill="#2140e8"/>
-            </svg>
-            <span class="chart-note" style="left:24%;top:54%">Primeras colaboraciones publicadas</span>
-            <div class="chart-axis"><span>mes 1</span><span>mes 12</span></div>
-            <div class="viz-foot"><span>Dominios de referencia</span><span><b>+38</b> dominios de calidad</span></div>
+          <div class="viz v2-gap" aria-hidden="true">
+            <p class="viz-label">Dominios que enlazan · tú frente a los tres primeros</p>
+            <div class="gp-row"><span class="gp-n">1.º Competidor A</span><span class="gp-t"><i style="--w:100%"></i></span><b>310</b></div>
+            <div class="gp-row"><span class="gp-n">2.º Competidor B</span><span class="gp-t"><i style="--w:77%"></i></span><b>240</b></div>
+            <div class="gp-row"><span class="gp-n">3.º Competidor C</span><span class="gp-t"><i style="--w:58%"></i></span><b>180</b></div>
+            <div class="gp-row you"><span class="gp-n">Tu web</span><span class="gp-t"><i style="--w:28%"></i><em style="--s:28%;--w:30%">faltan 94</em></span><b>86</b></div>
+            <div class="viz-foot"><span>Para pelear por el top 3 no hace falta llegar a 310</span></div>
           </div>
 
           <div class="showcase-note">
-            <p class="showcase-kicker">La autoridad se acumula</p>
-            <p>Cada enlace bueno suma y se queda. A diferencia de un anuncio, no desaparece cuando dejas de pagar. Un perfil que crece de forma constante durante un año es lo que separa a las webs que se quedan arriba de las que suben y bajan.</p>
-            <p class="showcase-stat"><b>+38</b><span>dominios de calidad en doce meses</span></p>
+            <p class="showcase-kicker">Cuánta autoridad te falta</p>
+            <p>Antes de pedir un solo enlace, mido la distancia con quienes ocupan los primeros puestos. Muchas veces no hace falta igualar al líder. Basta con acercarse al tercero con enlaces más relevantes que los suyos para empezar a competir en la primera página.</p>
+            <p class="showcase-stat"><b>94</b><span>dominios de distancia con el tercer resultado</span></p>
           </div>
         </div>
         <div class="services-grid services-grid-3">
@@ -324,15 +310,24 @@
           <p>Primero ordeno lo que ya existe y después construyo autoridad nueva, siempre con enlaces que tienen sentido para tu negocio.</p>
         </div>
         <div class="showcase showcase-flip reveal">
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Distribución del texto de los enlaces · perfil sano</p>
-            <div class="hbars"><div class="hbar"><span class="hbar-name">Marca</span><span class="hbar-track"><i style="--w:84%;background:var(--azul)"></i></span><span class="hbar-val">42 %</span></div><div class="hbar"><span class="hbar-name">URL</span><span class="hbar-track"><i style="--w:52%;background:var(--azul)"></i></span><span class="hbar-val">26 %</span></div><div class="hbar"><span class="hbar-name">Genérico</span><span class="hbar-track"><i style="--w:30%;background:var(--marino)"></i></span><span class="hbar-val">15 %</span></div><div class="hbar"><span class="hbar-name">Temático</span><span class="hbar-track"><i style="--w:24%;background:var(--verde)"></i></span><span class="hbar-val">12 %</span></div><div class="hbar"><span class="hbar-name">Exacto</span><span class="hbar-track"><i style="--w:10%;background:#d9900a"></i></span><span class="hbar-val">5 %</span></div></div>
-            <div class="viz-foot"><span>Un perfil natural tiene sobre todo enlaces de marca</span></div>
+          <div class="viz v2-donut" aria-hidden="true">
+            <p class="viz-label">Texto de los enlaces · perfil natural</p>
+            <div class="dn-wrap">
+              <svg viewBox="0 0 120 120"><g transform="rotate(-90 60 60)"><circle r="42" cx="60" cy="60" fill="none" stroke="#2140e8" stroke-width="16" stroke-dasharray="109.3 154.6" stroke-dashoffset="0.0"/><circle r="42" cx="60" cy="60" fill="none" stroke="#6b84f2" stroke-width="16" stroke-dasharray="67.1 196.8" stroke-dashoffset="-110.8"/><circle r="42" cx="60" cy="60" fill="none" stroke="#16294b" stroke-width="16" stroke-dasharray="38.1 225.8" stroke-dashoffset="-179.4"/><circle r="42" cx="60" cy="60" fill="none" stroke="#0e8a5f" stroke-width="16" stroke-dasharray="30.2 233.7" stroke-dashoffset="-219.0"/><circle r="42" cx="60" cy="60" fill="none" stroke="#d9900a" stroke-width="16" stroke-dasharray="11.7 252.2" stroke-dashoffset="-250.7"/></g>
+                <text x="60" y="57" class="dn-big">42 %</text><text x="60" y="72" class="dn-sm">marca</text></svg>
+              <ul class="dn-leg">
+                <li><i style="background:#2140e8"></i>Marca <b>42 %</b></li>
+                <li><i style="background:#6b84f2"></i>URL <b>26 %</b></li>
+                <li><i style="background:#16294b"></i>Genérico <b>15 %</b></li>
+                <li><i style="background:#0e8a5f"></i>Temático <b>12 %</b></li>
+                <li><i style="background:#d9900a"></i>Palabra exacta <b>5 %</b></li>
+              </ul>
+            </div>
           </div>
 
           <div class="showcase-note">
             <p class="showcase-kicker">Que parezca natural porque lo es</p>
-            <p>Cuando casi todos los enlaces de una web usan la palabra clave exacta, Google entiende que alguien los ha fabricado. Un perfil sano mezcla el nombre de la marca, la dirección de la web y textos genéricos, como pasa cuando otros te enlazan por iniciativa propia.</p>
+            <p>Cuando otros te enlazan por iniciativa propia, casi siempre usan el nombre de tu marca o la dirección de tu web. Si la mayoría de enlaces repiten la palabra clave exacta, Google entiende que alguien los ha fabricado. Un perfil sano se parece a este reparto.</p>
             <p class="showcase-stat"><b>5 %</b><span>como máximo de enlaces con la palabra clave exacta</span></p>
           </div>
         </div>
@@ -416,15 +411,22 @@
         <div class="section-head method-head reveal">
           <p class="eyebrow">Método</p>
           <h2>Cómo trabajo la autoridad de tu web</h2>
-          <p>Tres fases con entregables concretos. Antes de conseguir un solo enlace, limpio el perfil y mido la distancia real con tus competidores.</p>
+          <p>Tres fases con entregables concretos. Cada enlace sale de una colaboración real, con su propuesta, su seguimiento y su publicación.</p>
           <ul class="method-facts">
             <li><strong>Sin permanencia</strong><span>Cada fase tiene un entregable propio</span></li>
             <li><strong>Un solo interlocutor</strong><span>Quien analiza es quien ejecuta</span></li>
           </ul>
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Colaboraciones en curso · este trimestre</p>
-            <div class="pipe"><div class="pipe-col"><div class="pipe-head"><span>Prospecto</span><b>12</b></div><div class="pipe-card">Revista del sector<small>artículo técnico</small></div><div class="pipe-card">Asociación provincial<small>directorio socios</small></div><div class="pipe-card">Blog de un proveedor<small>caso de cliente</small></div></div><div class="pipe-col"><div class="pipe-head"><span>Contactado</span><b>7</b></div><div class="pipe-card">Medio local<small>entrevista</small></div><div class="pipe-card">Universidad<small>colaboración</small></div></div><div class="pipe-col"><div class="pipe-head"><span>Publicado</span><b>4</b></div><div class="pipe-card is-won">Portal del sector<small>guía enlazada</small></div><div class="pipe-card is-won">Diario local<small>noticia</small></div></div></div>
-            <div class="viz-foot"><span>Solo webs reales, relacionadas con tu sector o tu zona</span></div>
+          <div class="viz v2-mail" aria-hidden="true">
+            <p class="viz-label">Una colaboración, de principio a fin</p>
+            <div class="ml-card">
+              <div class="ml-h"><span>Para</span><b>redaccion@revistadelsector.es</b></div>
+              <div class="ml-h"><span>Asunto</span><b>Artículo técnico sobre envasado al vacío</b></div>
+              <div class="ml-body"><i></i><i></i><i class="s"></i></div>
+            </div>
+            <div class="ml-steps">
+              <span class="ok">Enviado</span><em></em><span class="ok">Respondido</span><em></em><span class="ok">Publicado</span>
+            </div>
+            <div class="ml-link"><span class="fav"></span>revistadelsector.es/envasado-vacio <b>Autoridad 62</b></div>
           </div>
         </div>
 
@@ -465,17 +467,22 @@
           <p>La autoridad tarda más que el On Page en notarse, pero sus efectos duran años y afectan a todas las páginas de la web a la vez.</p>
         </div>
         <div class="showcase showcase-flip reveal">
-          <div class="viz" aria-hidden="true">
-            <p class="viz-label">Auditoría de enlaces · 1.240 enlaces revisados</p>
-            <div class="check-sum"><i style="flex:1080"></i><i style="flex:120"></i><i style="flex:40"></i></div>
-            <div class="check"><div class="check-row"><span>Enlaces de medios y webs del sector</span><span class="chip chip-ok">Mantener</span></div><div class="check-row"><span>Directorios genéricos de baja calidad</span><span class="chip chip-warn">Revisar</span></div><div class="check-row"><span>Granja de enlaces de 2019</span><span class="chip chip-err">Desautorizar</span></div><div class="check-row"><span>Comentarios en blogs con texto exacto</span><span class="chip chip-err">Desautorizar</span></div><div class="check-row"><span>Menciones sin enlace en medios</span><span class="chip chip-warn">Convertir</span></div></div>
-            <div class="viz-foot"><span><b>1080</b> sanos</span><span><b>120</b> a revisar</span><span><b>40</b> tóxicos</span></div>
+          <div class="viz v2-tl" aria-hidden="true">
+            <p class="viz-label">Enlaces conseguidos · primer año</p>
+            <div class="tl-cols">
+              <div class="tl-col"><p>T1</p><span class="b">Asociación provincial <i>41</i></span><span class="b">Proveedor <i>38</i></span><span class="b">Directorio sector <i>35</i></span><b class="tl-n">+9</b></div>
+              <div class="tl-col"><p>T2</p><span class="b">Diario local <i>70</i></span><span class="b">Blog técnico <i>44</i></span><span class="b">Feria anual <i>52</i></span><b class="tl-n">+11</b></div>
+              <div class="tl-col"><p>T3</p><span class="b hot">Revista del sector <i>62</i></span><span class="b">Universidad <i>66</i></span><span class="b">Cliente con web <i>33</i></span><b class="tl-n">+8</b></div>
+              <div class="tl-col"><p>T4</p><span class="b hot">Portal sectorial <i>58</i></span><span class="b">Podcast del sector <i>47</i></span><span class="b">Medio regional <i>64</i></span><b class="tl-n">+10</b></div>
+            </div>
+            <div class="tl-bar"><i style="--w:24%"></i><i style="--w:29%"></i><i style="--w:21%"></i><i style="--w:26%"></i></div>
+            <div class="viz-foot"><span>Número junto a cada web: su autoridad</span><span><b>38</b> dominios nuevos</span></div>
           </div>
 
           <div class="showcase-note">
-            <p class="showcase-kicker">Primero, ordenar la casa</p>
-            <p>Muchos proyectos empiezan con enlaces heredados que restan. Antes de construir nada, se limpia lo que perjudica y se aprovecha lo que ya existe, como las menciones en medios que no enlazan y pueden pedir el enlace.</p>
-            <p class="showcase-stat"><b>40</b><span>enlaces tóxicos desautorizados en el primer mes</span></p>
+            <p class="showcase-kicker">Trimestre a trimestre</p>
+            <p>Así crece un perfil de enlaces trabajado con calma. Primero llegan las relaciones que el negocio ya tiene, como asociaciones y proveedores. Después, los medios locales y las revistas del sector, que son los enlaces con más autoridad y los que más tardan.</p>
+            <p class="showcase-stat"><b>38</b><span>dominios nuevos en el primer año</span></p>
           </div>
         </div>
         <h3 class="sub-head reveal">Webs que ganaron autoridad con enlaces de calidad</h3>
@@ -796,6 +803,6 @@
   }, true);
 })();
   </script>
-  <script src="/script.js?v=20261025j" defer></script>
+  <script src="/script.js?v=20261025l" defer></script>
 </body>
 </html>
