@@ -135,12 +135,12 @@ if (queryEl && !reducedMotion) {
   var next1 = steps[0].querySelector(".wizard-next");
   var current = 1;
 
-  function show(n) {
+  function show(n, noFocus) {
     current = n;
     for (var i = 0; i < steps.length; i++) steps[i].classList.toggle("is-active", i === n - 1);
     for (var j = 0; j < bars.length; j++) bars[j].classList.toggle("is-on", j < n);
     var first = steps[n - 1].querySelector("input:not([type=hidden]):not([disabled]):not(.hp)");
-    if (first && first.type !== "radio" && first.type !== "checkbox") setTimeout(function () { first.focus(); }, 30);
+    if (!noFocus && first && first.type !== "radio" && first.type !== "checkbox") setTimeout(function () { first.focus({ preventScroll: true }); }, 30);
   }
   function err(n, msg) { steps[n - 1].querySelector(".wizard-error").textContent = msg || ""; }
 
@@ -151,7 +151,7 @@ if (queryEl && !reducedMotion) {
     title1.textContent = on ? title1.getAttribute("data-title-noweb") : title1.getAttribute("data-title-web");
     next1.textContent = on ? "Continuar →" : "Analizar mi web →";
     err(1, "");
-    (on ? biz : url).focus();
+    (on ? biz : url).focus({ preventScroll: true });
   }
   noWeb.addEventListener("change", toggleNoWeb);
 
@@ -184,7 +184,7 @@ if (queryEl && !reducedMotion) {
   }, true);
 
 
-  show(1);
+  show(1, true);
 })();
 
 /* ---------- Formulario de contacto: envío sin recargar ---------- */
