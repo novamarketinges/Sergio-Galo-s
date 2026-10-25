@@ -56,6 +56,70 @@ if (queryEl && !reducedMotion) {
   setTimeout(tick, 2200);
 }
 
+/* ---------- Web obligatoria con casilla "No tengo web" (todos los formularios con input[name="url"]) ---------- */
+
+(function () {
+  var URL_RE = /^(https?:\/\/)?(www\.)?([a-z0-9áéíóúàèòïüñç-]+\.)+[a-z]{2,24}(:\d{2,5})?(\/\S*)?$/i;
+  var ca = (document.documentElement.lang || "es").toLowerCase().indexOf("ca") === 0;
+  var T = ca
+    ? { noweb: "No tinc web", business: "Nom del negoci *", invalid: "Introdueix una web vàlida, per exemple: lamevaempresa.com" }
+    : { noweb: "No tengo web", business: "Nombre del negocio *", invalid: "Introduce una web válida, por ejemplo: miempresa.com" };
+
+  var forms = document.querySelectorAll("form");
+  for (var i = 0; i < forms.length; i++) {
+    (function (form) {
+      var url = form.querySelector('input[name="url"]');
+      if (!url) return;
+      var formId = form.id || "form";
+
+      url.required = true;
+      url.setAttribute("autocomplete", "url");
+      url.setAttribute("inputmode", "url");
+      if (!url.placeholder) url.placeholder = "www.miempresa.com";
+      var field = url.closest(".field") || url.parentNode;
+      var labelText = field.querySelector("span");
+      if (labelText && !/\*\s*$/.test(labelText.textContent)) labelText.textContent = labelText.textContent.replace(/\s*$/, "") + " *";
+
+      var validar = function () {
+        var v = url.value.trim();
+        url.setCustomValidity(v && !URL_RE.test(v) ? T.invalid : "");
+      };
+      url.addEventListener("input", validar);
+      url.addEventListener("blur", function () { url.value = url.value.trim(); validar(); });
+
+      // Casilla "No tengo web"
+      var check = document.createElement("label");
+      check.className = "field field-check field-noweb";
+      var cb = document.createElement("input");
+      cb.type = "checkbox"; cb.name = "no_web"; cb.value = "1"; cb.id = formId + "-no-web";
+      var cbText = document.createElement("span"); cbText.textContent = T.noweb;
+      check.appendChild(cb); check.appendChild(cbText);
+
+      // Campo "Nombre del negocio" (oculto hasta marcar la casilla)
+      var biz = document.createElement("label");
+      biz.className = "field field-business";
+      biz.hidden = true;
+      var bizText = document.createElement("span"); bizText.textContent = T.business;
+      var bizInput = document.createElement("input");
+      bizInput.type = "text"; bizInput.name = "business"; bizInput.maxLength = 120;
+      bizInput.setAttribute("autocomplete", "organization"); bizInput.disabled = true;
+      biz.appendChild(bizText); biz.appendChild(bizInput);
+
+      field.insertAdjacentElement("afterend", check);
+      check.insertAdjacentElement("afterend", biz);
+
+      var toggle = function () {
+        var on = cb.checked;
+        field.hidden = on; url.disabled = on; url.required = !on;
+        if (on) url.setCustomValidity("");
+        biz.hidden = !on; bizInput.disabled = !on; bizInput.required = on;
+      };
+      cb.addEventListener("change", toggle);
+      toggle();
+    })(forms[i]);
+  }
+})();
+
 /* ---------- Formulario de contacto: envío sin recargar ---------- */
 
 const contactForm = document.getElementById("form-contacto");
@@ -63,18 +127,6 @@ const contactForm = document.getElementById("form-contacto");
 if (contactForm) {
   const status = contactForm.querySelector(".form-status");
   const submit = contactForm.querySelector(".form-submit");
-
-  // Campo web: basta con un dominio con su extensión (tunegocio.es); http, https y www son opcionales
-  const webField = contactForm.elements.web;
-  if (webField) {
-    const DOMINIO = /^\s*((https?:\/\/)?(www\.)?)?[\p{L}\p{N}-]+(\.[\p{L}\p{N}-]+)*\.[\p{L}]{2,}(\/\S*)?\s*$/u;
-    const validarWeb = () => {
-      const v = webField.value.trim();
-      webField.setCustomValidity(v && !DOMINIO.test(v) ? "Escribe tu dominio, por ejemplo tunegocio.es" : "");
-    };
-    webField.addEventListener("input", validarWeb);
-    webField.addEventListener("blur", () => { validarWeb(); webField.value = webField.value.trim(); });
-  }
 
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -100,16 +152,19 @@ if (contactForm) {
         body: JSON.stringify(data)
       });
       if (!res.ok) {
-        let codigo = "";
-        try { const j = await res.json(); codigo = j.codigo ? " (" + j.codigo + ")" : ""; } catch (e) { /* sin cuerpo */ }
-        throw new Error("HTTP " + res.status + codigo);
+        let detalle = "";
+        try { const j = await res.json(); detalle = j.error ? j.error + (j.codigo ? " (" + j.codigo + ")" : "") : (j.codigo ? "(" + j.codigo + ")" : ""); } catch (e) { /* sin cuerpo */ }
+        throw new Error("HTTP " + res.status + (detalle ? " " + detalle : ""));
       }
       status.textContent = "Recibido. Te respondo personalmente en menos de 24 horas laborables.";
       status.classList.add("is-ok");
       contactForm.reset();
       if (window.dataLayer) window.dataLayer.push({ event: "form_contacto_enviado" });
     } catch (err) {
-      status.textContent = "No se ha podido enviar. Llámame al 644 738 270 o escríbeme por WhatsApp." + (err && /\(/.test(err.message) ? " Código: " + err.message.replace(/^HTTP \d+ /, "") : "");
+      const srv = err && err.message ? err.message.replace(/^HTTP (\d+)\s?/, "") : "";
+      status.textContent = (/^HTTP 400/.test(err && err.message) && srv)
+        ? srv
+        : "No se ha podido enviar. Llámame al 644 738 270 o escríbeme por WhatsApp." + (srv ? " " + srv : "");
       status.classList.add("is-err");
     } finally {
       submit.disabled = false;
