@@ -3691,3 +3691,100 @@ a.geo-card:hover {
   .caret { animation: none; }
   .btn, .service-card { transition: none; }
 }
+
+/* ============================================================
+   Formulario por pasos (contacto)
+   ============================================================ */
+
+.wizard { gap: 0; }
+
+.wizard-progress {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 26px;
+}
+
+.wizard-progress i {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--niebla);
+  transition: background 0.3s ease;
+}
+
+.wizard-progress i.is-on { background: var(--azul); }
+
+.wizard-step { display: none; border: 0; padding: 0; margin: 0; min-width: 0; }
+.wizard-step.is-active { display: grid; gap: 14px; animation: wizardIn 0.3s ease; }
+
+@keyframes wizardIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.wizard-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+.wizard-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--tinta);
+  padding: 0;
+  margin: -6px 0 6px;
+}
+
+.wizard .field-web input,
+.wizard .field-business-step input { font-size: 1.05rem; padding: 14px 16px; }
+
+.wizard-error { color: #b3261e; font-size: 0.9rem; min-height: 0; }
+.wizard-error:empty { display: none; }
+
+.wizard-options { display: grid; gap: 10px; }
+
+.wizard-option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.wizard-option input { position: absolute; opacity: 0; pointer-events: none; }
+
+.wizard-option span {
+  display: block;
+  background: var(--papel);
+  border: 1px solid var(--niebla);
+  border-radius: 14px;
+  padding: 15px 18px;
+  font-size: 1rem;
+  color: var(--tinta);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.wizard-option:hover span { border-color: var(--azul); background: var(--blanco); transform: translateY(-1px); }
+.wizard-option input:checked + span { border-color: var(--azul); background: var(--marino-suave); color: var(--azul); font-weight: 600; }
+.wizard-option input:focus-visible + span { outline: 2px solid var(--azul); outline-offset: 2px; }
+
+.wizard-back {
+  justify-self: center;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gris);
+  padding: 6px 10px;
+}
+
+.wizard-back:hover { color: var(--azul); }
+
+.wizard-done { display: grid; gap: 10px; text-align: center; padding: 20px 0; }
+.wizard-done[hidden] { display: none; }
+.wizard-done .wizard-title { margin: 0; }

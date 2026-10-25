@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/styles.css?v=20261025a">
+  <link rel="stylesheet" href="/styles.css?v=20261025b">
 
   <script type="application/ld+json">
   {
@@ -148,36 +148,64 @@
         </div>
 
         <div class="form-card reveal" id="formulario">
-          <p class="viz-label">Formulario de contacto · auditoría gratuita</p>
-          <form id="form-contacto" class="form" action="/api/contacto/" method="POST" novalidate>
-            <div class="form-row form-row-2">
+          <form id="form-contacto" class="form wizard" action="/api/contacto/" method="POST" novalidate data-wizard>
+            <div class="wizard-progress" aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
+
+            <!-- Paso 1 -->
+            <fieldset class="wizard-step is-active" data-step="1">
+              <p class="wizard-kicker">Paso 1 de 3</p>
+              <legend class="wizard-title" data-title-web="¿Cuál es tu web?" data-title-noweb="¿Cómo se llama tu negocio?">¿Cuál es tu web?</legend>
+              <label class="field field-web"><span class="visually-hidden">Web</span>
+                <input type="text" name="url" inputmode="url" placeholder="www.miempresa.com" autocomplete="url" autocapitalize="none" spellcheck="false" required>
+              </label>
+              <label class="field field-business-step" hidden><span class="visually-hidden">Nombre del negocio</span>
+                <input type="text" name="business" maxlength="120" placeholder="Nombre de tu negocio" autocomplete="organization" disabled>
+              </label>
+              <label class="field field-check">
+                <input type="checkbox" name="no_web" value="1" id="form-contacto-no-web">
+                <span>No tengo web</span>
+              </label>
+              <p class="wizard-error" role="alert"></p>
+              <button class="btn btn-primary form-submit wizard-next" type="button">Analizar mi web →</button>
+            </fieldset>
+
+            <!-- Paso 2 -->
+            <fieldset class="wizard-step" data-step="2">
+              <p class="wizard-kicker">Paso 2 de 3</p>
+              <legend class="wizard-title">¿Qué quieres conseguir?</legend>
+              <div class="wizard-options">
+                <label class="wizard-option"><input type="radio" name="objetivo" value="local" required><span>Más clientes de mi zona</span></label>
+                <label class="wizard-option"><input type="radio" name="objetivo" value="ecommerce"><span>Vender más en mi tienda online</span></label>
+                <label class="wizard-option"><input type="radio" name="objetivo" value="b2b"><span>Conseguir presupuestos de empresas</span></label>
+                <label class="wizard-option"><input type="radio" name="objetivo" value="no-se"><span>Todavía no lo tengo claro</span></label>
+              </div>
+              <p class="wizard-error" role="alert"></p>
+              <button class="wizard-back" type="button">← Atrás</button>
+            </fieldset>
+
+            <!-- Paso 3 -->
+            <fieldset class="wizard-step" data-step="3">
+              <p class="wizard-kicker">Paso 3 de 3</p>
+              <legend class="wizard-title">¿A dónde te lo envío?</legend>
               <label class="field"><span>Nombre *</span><input type="text" name="name" autocomplete="name" required></label>
-              <label class="field"><span>Empresa</span><input type="text" name="empresa" autocomplete="organization"></label>
-            </div>
-            <div class="form-row form-row-2">
-              <label class="field"><span>Web</span><input type="text" name="url" inputmode="url" placeholder="www.miempresa.com" autocomplete="url" autocapitalize="none" spellcheck="false"></label>
+              <label class="field"><span>Email *</span><input type="email" name="email" autocomplete="email" required></label>
               <label class="field"><span>Teléfono *</span><input type="tel" name="phone" required autocomplete="tel" inputmode="tel" minlength="9" pattern="[0-9+\s.\(\)\-]{9,20}" title="Introduce un teléfono válido (mínimo 9 cifras)"></label>
+              <label class="field field-check">
+                <input type="checkbox" id="form-contacto-terms" name="terms" value="1" required>
+                <span>He leído y acepto la <a href="/politica-de-privacidad/">política de privacidad</a>.</span>
+              </label>
+              <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+              <button class="btn btn-primary form-submit" type="submit">Enviadme el diagnóstico →</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <button class="wizard-back" type="button">← Atrás</button>
+            </fieldset>
+
+            <!-- Enviado -->
+            <div class="wizard-done" hidden>
+              <p class="wizard-kicker">Recibido</p>
+              <p class="wizard-title">Gracias, ya tengo tus datos</p>
+              <p class="form-note">Reviso tu caso y te respondo personalmente en menos de 24 horas laborables. Si es urgente, llámame al <a href="tel:+34644738270">644 738 270</a>.</p>
             </div>
-            <label class="field"><span>Tu email, para enviarte la auditoría *</span><input type="email" name="email" autocomplete="email" required></label>
-            <label class="field"><span>¿Qué necesitas?</span>
-              <select name="necesidad" required>
-                <option value="">Elige una opción</option>
-                <option value="auditoria-gratuita">Auditoría SEO inicial gratuita</option>
-                <option value="auditoria-completa">Auditoría SEO completa (desde 900 €)</option>
-                <option value="consultoria-mensual">Consultoría SEO mensual (desde 300 € al mes)</option>
-                <option value="proyecto">Proyecto SEO a medida (a consultar)</option>
-                <option value="no-se">Todavía no lo sé</option>
-              </select>
-            </label>
-            <label class="field"><span>Cuéntame tu proyecto *</span><textarea name="msg" rows="4" placeholder="A qué te dedicas, dónde estás y qué te gustaría conseguir en Google." required></textarea></label>
-            <label class="field field-check">
-              <input type="checkbox" id="form-contacto-terms" name="terms" value="1" required>
-              <span>He leído y acepto la <a href="/politica-de-privacidad/">política de privacidad</a>.</span>
-            </label>
-            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <button class="btn btn-primary form-submit" type="submit">Pedir mi auditoría gratuita</button>
-            <p class="form-note">Sin compromiso. Te responderé personalmente en menos de 24 horas laborables.</p>
-            <p class="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -431,6 +459,6 @@
   }, true);
 })();
   </script>
-  <script src="/script.js?v=20261025a" defer></script>
+  <script src="/script.js?v=20261025b" defer></script>
 </body>
 </html>

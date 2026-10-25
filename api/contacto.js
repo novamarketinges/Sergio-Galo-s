@@ -12,6 +12,12 @@ const { classifyTouch, leadSourceBlock, fmtDate, clean } = require("../lib/lead-
 const BRAND = "Sergio Galo's";
 const PHONE_RE = /^[0-9+\s().-]{9,40}$/;
 const URL_RE = /^(https?:\/\/)?(www\.)?([a-z0-9áéíóúàèòïüñç-]+\.)+[a-z]{2,24}(:\d{2,5})?(\/\S*)?$/i;
+const OBJETIVOS = {
+  local: "Más clientes de mi zona",
+  ecommerce: "Vender más en mi tienda online",
+  b2b: "Conseguir presupuestos de empresas",
+  "no-se": "Todavía no lo tiene claro",
+};
 const NECESIDADES = {
   "auditoria-gratuita": "Auditoría SEO inicial gratuita",
   "auditoria-completa": "Auditoría SEO completa (desde 900 €)",
@@ -74,6 +80,8 @@ function buildAdminMail(body, headers) {
     `Web:       ${noWeb ? "no tiene web" : (url || "-")}`,
     `Negocio:   ${business || empresa || "-"}`,
   ];
+  const objetivo = OBJETIVOS[clean(body.objetivo, 30)] || clean(body.objetivo, 60);
+  if (objetivo) lines.push(`Objetivo:  ${objetivo}`);
   if (necesidad) lines.push(`Necesita:  ${necesidad}`);
   lines.push(`Mensaje:   ${msg || "-"}`);
   lines.push(`Página:    ${source || "-"}`);
@@ -109,7 +117,6 @@ function validate(body) {
   } else if (business.length < 2 || business.length > 120) {
     errores.push({ campo: "business", mensaje: "Indica el nombre del negocio (2 a 120 caracteres)" });
   }
-  if (!String(body.msg || "").trim()) errores.push({ campo: "msg", mensaje: "Cuéntame tu proyecto" });
   if (!truthy(body.terms)) errores.push({ campo: "terms", mensaje: "Debes aceptar la política de privacidad" });
   return errores;
 }

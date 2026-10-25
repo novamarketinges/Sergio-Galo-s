@@ -69,7 +69,7 @@ if (queryEl && !reducedMotion) {
   for (var i = 0; i < forms.length; i++) {
     (function (form) {
       var url = form.querySelector('input[name="url"]');
-      if (!url) return;
+      if (!url || form.hasAttribute("data-wizard")) return;
       var formId = form.id || "form";
 
       url.required = true;
@@ -120,6 +120,78 @@ if (queryEl && !reducedMotion) {
   }
 })();
 
+/* ---------- Formulario por pasos (data-wizard) ---------- */
+
+(function () {
+  var form = document.querySelector("form[data-wizard]");
+  if (!form) return;
+  var URL_RE = /^(https?:\/\/)?(www\.)?([a-z0-9áéíóúàèòïüñç-]+\.)+[a-z]{2,24}(:\d{2,5})?(\/\S*)?$/i;
+  var steps = form.querySelectorAll(".wizard-step");
+  var bars = form.querySelectorAll(".wizard-progress i");
+  var url = form.querySelector('input[name="url"]');
+  var biz = form.querySelector('input[name="business"]');
+  var noWeb = form.querySelector('input[name="no_web"]');
+  var title1 = steps[0].querySelector(".wizard-title");
+  var next1 = steps[0].querySelector(".wizard-next");
+  var current = 1;
+
+  function show(n) {
+    current = n;
+    for (var i = 0; i < steps.length; i++) steps[i].classList.toggle("is-active", i === n - 1);
+    for (var j = 0; j < bars.length; j++) bars[j].classList.toggle("is-on", j < n);
+    var first = steps[n - 1].querySelector("input:not([type=hidden]):not([disabled]):not(.hp)");
+    if (first && first.type !== "radio" && first.type !== "checkbox") setTimeout(function () { first.focus(); }, 30);
+  }
+  function err(n, msg) { steps[n - 1].querySelector(".wizard-error").textContent = msg || ""; }
+
+  function toggleNoWeb() {
+    var on = noWeb.checked;
+    url.closest(".field").hidden = on; url.disabled = on; url.required = !on;
+    biz.closest(".field").hidden = !on; biz.disabled = !on; biz.required = on;
+    title1.textContent = on ? title1.getAttribute("data-title-noweb") : title1.getAttribute("data-title-web");
+    next1.textContent = on ? "Continuar →" : "Analizar mi web →";
+    err(1, "");
+    (on ? biz : url).focus();
+  }
+  noWeb.addEventListener("change", toggleNoWeb);
+
+  function validStep1() {
+    if (noWeb.checked) {
+      var b = biz.value.trim();
+      if (b.length < 2) { err(1, "Escribe el nombre de tu negocio"); biz.focus(); return false; }
+    } else {
+      var u = url.value.trim(); url.value = u;
+      if (!URL_RE.test(u)) { err(1, "Introduce una web válida, por ejemplo: miempresa.com"); url.focus(); return false; }
+    }
+    err(1, ""); return true;
+  }
+
+  next1.addEventListener("click", function () { if (validStep1()) show(2); });
+  [url, biz].forEach(function (el) {
+    el.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); next1.click(); } });
+  });
+
+  var radios = form.querySelectorAll('input[name="objetivo"]');
+  for (var r = 0; r < radios.length; r++) radios[r].addEventListener("change", function () { err(2, ""); show(3); });
+
+  var backs = form.querySelectorAll(".wizard-back");
+  for (var k = 0; k < backs.length; k++) backs[k].addEventListener("click", function () { show(Math.max(1, current - 1)); });
+
+  // Si el envío llega con algo inválido de pasos anteriores, vuelve a ese paso
+  form.addEventListener("submit", function (e) {
+    if (!validStep1()) { e.preventDefault(); e.stopImmediatePropagation(); show(1); return; }
+    if (!form.querySelector('input[name="objetivo"]:checked')) { e.preventDefault(); e.stopImmediatePropagation(); show(2); err(2, "Elige una opción"); }
+  }, true);
+
+  form.addEventListener("form:enviado", function () {
+    for (var i = 0; i < steps.length; i++) steps[i].classList.remove("is-active");
+    form.querySelector(".wizard-progress").hidden = true;
+    form.querySelector(".wizard-done").hidden = false;
+  });
+
+  show(1);
+})();
+
 /* ---------- Formulario de contacto: envío sin recargar ---------- */
 
 const contactForm = document.getElementById("form-contacto");
@@ -159,6 +231,7 @@ if (contactForm) {
       status.textContent = "Recibido. Te respondo personalmente en menos de 24 horas laborables.";
       status.classList.add("is-ok");
       contactForm.reset();
+      contactForm.dispatchEvent(new CustomEvent("form:enviado"));
       if (window.dataLayer) window.dataLayer.push({ event: "form_contacto_enviado" });
     } catch (err) {
       const srv = err && err.message ? err.message.replace(/^HTTP (\d+)\s?/, "") : "";
