@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css?v=20261025g">
+  <link rel="stylesheet" href="styles.css?v=20261025h">
 
   <script type="application/ld+json">
   {
@@ -426,33 +426,40 @@
 
         <div class="bento">
 
-          <article class="bento-card bento-tech reveal">
-            <div class="bento-top">
-              <span class="bento-icon" aria-hidden="true">01</span>
-              <a class="bento-more" href="/consultor-seo-tecnico/">Ver servicio →</a>
-            </div>
+          <article class="bento-card reveal">
+            <div class="bento-top"><span class="bento-icon" aria-hidden="true">01</span><a class="bento-more" href="/consultor-seo-tecnico/">Ver servicio →</a></div>
             <h3>Auditoría SEO técnica completa</h3>
-            <p>Que Google lea tu web sin obstáculos, antes de tocar una sola palabra.</p>
-            <div class="bento-viz bento-rings" aria-hidden="true">
-              <div><span class="ring" style="--p:96">96</span><small>Rendimiento</small></div>
-              <div><span class="ring" style="--p:100">100</span><small>SEO</small></div>
-              <div><span class="ring" style="--p:92">92</span><small>Accesibilidad</small></div>
+            <p>Que Google lea tu web sin obstáculos, antes de tocar el contenido.</p>
+            <div class="bento-panel bp-tech" aria-hidden="true">
+              <div class="bp-rings">
+                <div><span class="ring" style="--p:96">96</span><small>Rendimiento</small></div>
+                <div><span class="ring" style="--p:100">100</span><small>SEO</small></div>
+                <div><span class="ring" style="--p:92">92</span><small>Accesib.</small></div>
+              </div>
+              <div class="bp-vitals">
+                <span><b>LCP</b> 1,9 s</span><span><b>INP</b> 140 ms</span><span><b>CLS</b> 0,02</span>
+              </div>
             </div>
-            <ul class="bento-list">
-              <li><h4>Análisis de rastreabilidad e indexabilidad</h4></li>
-              <li><h4>Core Web Vitals y velocidad de carga</h4></li>
-              <li><h4>Detección de errores que frenan tu posicionamiento</h4></li>
-            </ul>
+            <div class="bento-tags">
+              <h4>Análisis de rastreabilidad e indexabilidad</h4>
+              <h4>Core Web Vitals y velocidad de carga</h4>
+              <h4>Detección de errores que frenan tu posicionamiento</h4>
+            </div>
           </article>
 
-          <article class="bento-card bento-onpage reveal">
+          <article class="bento-card reveal">
             <div class="bento-top"><span class="bento-icon" aria-hidden="true">02</span></div>
             <h3>Consultoría SEO On-Page</h3>
-            <p>Contenido que responde a lo que busca tu cliente.</p>
-            <div class="bento-viz bento-snippet" aria-hidden="true">
-              <span class="u">tuweb.es › servicios</span>
-              <span class="t">Tu servicio en tu ciudad · Presupuesto en 24 h</span>
-              <span class="r">★★★★★ 4,9 · 128 opiniones</span>
+            <p>Contenido que responde exactamente a lo que busca tu cliente.</p>
+            <div class="bento-panel bp-serp" aria-hidden="true">
+              <div class="bp-search"><span class="bp-glass"></span>consultor seo sabadell</div>
+              <div class="bp-result">
+                <span class="u"><i></i>tuweb.es › servicios</span>
+                <span class="t">Consultor SEO en Sabadell · Auditoría gratis</span>
+                <span class="r"><em>★★★★★</em> 4,9 (128) · Desde 300 €/mes</span>
+                <span class="faq">▾ ¿Cuánto tarda el SEO? &nbsp; ▾ ¿Cuánto cuesta?</span>
+              </div>
+              <span class="bp-badge">#1</span>
             </div>
             <div class="bento-tags">
               <h4>Optimización de contenidos y arquitectura web</h4>
@@ -460,16 +467,25 @@
             </div>
           </article>
 
-          <article class="bento-card bento-offpage reveal">
+          <article class="bento-card reveal">
             <div class="bento-top"><span class="bento-icon" aria-hidden="true">03</span></div>
             <h3>Estrategia SEO Off-Page y autoridad</h3>
-            <p>Enlaces de calidad que te convierten en referencia.</p>
-            <div class="bento-viz bento-graph" aria-hidden="true">
-              <svg viewBox="0 0 220 70" preserveAspectRatio="xMidYMid meet">
-                <line x1="110" y1="35" x2="30" y2="14"/><line x1="110" y1="35" x2="38" y2="58"/><line x1="110" y1="35" x2="190" y2="12"/><line x1="110" y1="35" x2="196" y2="56"/><line x1="110" y1="35" x2="150" y2="62"/><line x1="110" y1="35" x2="70" y2="8" class="bad"/>
-                <circle cx="30" cy="14" r="6"/><circle cx="38" cy="58" r="5"/><circle cx="190" cy="12" r="7"/><circle cx="196" cy="56" r="5"/><circle cx="150" cy="62" r="4"/><circle cx="70" cy="8" r="4" class="bad"/>
-                <circle cx="110" cy="35" r="12" class="me"/>
+            <p>Enlaces de calidad que te convierten en referencia de tu sector.</p>
+            <div class="bento-panel bp-links" aria-hidden="true">
+              <svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid meet">
+                <defs><linearGradient id="lkg" x1="0" x2="1"><stop offset="0" stop-color="#2140e8" stop-opacity=".15"/><stop offset="1" stop-color="#2140e8" stop-opacity=".7"/></linearGradient></defs>
+                <path d="M40 30 Q100 40 150 65" class="lk"/><path d="M36 100 Q100 95 150 65" class="lk"/><path d="M260 26 Q200 40 150 65" class="lk"/><path d="M264 104 Q200 92 150 65" class="lk"/><path d="M150 118 L150 65" class="lk"/>
+                <path d="M110 12 Q125 40 150 65" class="lk bad"/>
+                <g class="nd"><circle cx="40" cy="30" r="15"/><text x="40" y="34">72</text></g>
+                <g class="nd"><circle cx="36" cy="100" r="12"/><text x="36" y="104">48</text></g>
+                <g class="nd"><circle cx="260" cy="26" r="16"/><text x="260" y="30">81</text></g>
+                <g class="nd"><circle cx="264" cy="104" r="12"/><text x="264" y="108">55</text></g>
+                <g class="nd"><circle cx="150" cy="118" r="10"/><text x="150" y="122">39</text></g>
+                <g class="nd bad"><circle cx="110" cy="12" r="9"/><text x="110" y="16">!</text></g>
+                <g class="me"><circle cx="150" cy="65" r="22"/><text x="150" y="70">tú</text></g>
               </svg>
+              <span class="bp-chip ok">+38 dominios de calidad</span>
+              <span class="bp-chip bad">1 tóxico desautorizado</span>
             </div>
             <div class="bento-tags">
               <h4>Análisis de perfil de enlaces</h4>
@@ -477,26 +493,38 @@
             </div>
           </article>
 
-          <article class="bento-card bento-local reveal">
-            <div class="bento-top">
-              <span class="bento-icon" aria-hidden="true">04</span>
-              <a class="bento-more" href="/consultor-seo-local/">Ver servicio →</a>
-            </div>
+          <article class="bento-card bento-wide reveal">
+            <div class="bento-top"><span class="bento-icon" aria-hidden="true">04</span><a class="bento-more" href="/consultor-seo-local/">Ver servicio →</a></div>
             <h3>SEO local para negocios con presencia física</h3>
-            <p>Que quien busca cerca de ti te elija a ti.</p>
-            <div class="bento-viz bento-map" aria-hidden="true">
-              <span class="pin-me"></span><span class="pin-o p2"></span><span class="pin-o p3"></span>
-              <span class="map-chip">▲ Pack de Google Maps</span>
+            <p>Que quien busca cerca de ti te encuentre en el mapa y te elija a ti.</p>
+            <div class="bento-panel bp-map" aria-hidden="true">
+              <span class="road r1"></span><span class="road r2"></span><span class="park"></span>
+              <span class="pin p2"></span><span class="pin p3"></span><span class="pin me"></span>
+              <div class="bp-pop">
+                <strong>Tu negocio</strong>
+                <span class="st">★★★★★ <b>4,9</b> (128)</span>
+                <span class="op">Abierto · a 1,2 km</span>
+              </div>
+              <span class="bp-chip ok">▲ Top 3 en el mapa</span>
+            </div>
+            <div class="bento-tags">
+              <span class="tag-like">Google Business Profile</span>
+              <span class="tag-like">Reseñas y citaciones</span>
             </div>
           </article>
 
-          <article class="bento-card bento-geo reveal">
+          <article class="bento-card bento-wide reveal">
             <div class="bento-top"><span class="bento-icon" aria-hidden="true">05</span></div>
             <h3>Consultoría GEO/AEO para IA y AI Overviews</h3>
-            <p>Que ChatGPT y Google te citen como fuente.</p>
-            <div class="bento-viz bento-ai" aria-hidden="true">
-              <span class="q">¿Qué consultor SEO me recomiendas en Barcelona?</span>
-              <span class="a">Una opción con buenas valoraciones es <b>tu negocio</b>, especializado en… <i>[1]</i></span>
+            <p>Que ChatGPT, Perplexity y Google te citen como fuente cuando tu cliente pregunta.</p>
+            <div class="bento-panel bp-ai" aria-hidden="true">
+              <div class="msg me">¿Qué consultor SEO me recomiendas en Barcelona?</div>
+              <div class="msg ai"><span class="av">IA</span><p>Una buena opción es <b>tu negocio</b>: trabaja con pymes y ecommerce y tiene valoraciones de 4,9 <i>1</i></p></div>
+              <div class="src"><span class="fav"></span>tuweb.es <small>· Fuente citada</small></div>
+            </div>
+            <div class="bento-tags">
+              <span class="tag-like">ChatGPT y Perplexity</span>
+              <span class="tag-like">AI Overviews de Google</span>
             </div>
           </article>
 
@@ -1436,6 +1464,6 @@
   }, true);
 })();
   </script>
-  <script src="script.js?v=20261025g" defer></script>
+  <script src="script.js?v=20261025h" defer></script>
 </body>
 </html>
